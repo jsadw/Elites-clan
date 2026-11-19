@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elites Clan</title>
+<link rel="icon" href="logo.jpg">
+<style>
+  :root{
+    --bg:#070506; --panel:#0e0a0b; --line:#2a1214; --text:#f1e9e9; --muted:#a8999b;
+    --red:#e8141c; --red-soft:#ff5a5f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.12em}
+  .brand img{width:34px;height:34px;border-radius:6px}
+  nav{display:flex;gap:20px;font-size:14px;color:var(--muted)}
+  nav a:hover{color:var(--red-soft)}
+  .hero{position:relative;border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(var(--line) 1px,transparent 1px) 0 0/48px 48px,
+      linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/48px 48px,
+      radial-gradient(ellipse at 75% 50%,rgba(232,20,28,.28),transparent 60%),var(--bg);}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-top:80px;padding-bottom:80px}
+  .tag{color:var(--red-soft);font-size:12px;font-weight:700;letter-spacing:.2em;margin-bottom:12px}
+  h1{font-size:clamp(64px,11vw,128px);line-height:.9;font-weight:900;font-style:italic;letter-spacing:-.03em}
+  h1 span{display:block;color:var(--red);text-shadow:0 0 30px rgba(232,20,28,.5)}
+  .hero p{color:var(--muted);max-width:420px;margin:24px 0}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:12px 20px;border-radius:4px;font-weight:700;font-size:14px;border:1px solid var(--red);transition:.2s}
+  .btn.fill{background:var(--red);color:#fff;box-shadow:0 0 22px rgba(232,20,28,.45)}
+  .btn.fill:hover{background:var(--red-soft)}
+  .btn.ghost{background:transparent}
+  .btn.ghost:hover{background:rgba(232,20,28,.15)}
+  .btn:focus-visible,nav a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .logo{border:1px solid var(--line);padding:6px;background:#000;box-shadow:0 0 60px rgba(232,20,28,.35)}
+  .logo img{display:block;width:100%;height:auto}
+  section.block{padding:72px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:34px;margin-bottom:20px}
+  .offer{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:8px}
+  .card{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:6px}
+  .card h3{font-size:16px;margin-bottom:6px;color:var(--red-soft)}
+  .card p{color:var(--muted);font-size:14px}
+  .games{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .games li{list-style:none;border:1px solid var(--line);background:var(--panel);padding:8px 16px;border-radius:999px;font-size:14px}
+  ul.rules{padding-left:20px;color:var(--muted)}
+  ul.rules li{margin:6px 0}
+  footer{padding:32px 0;color:var(--muted);font-size:13px;text-align:center}
+  @media(max-width:760px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px}
+    nav{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="logo.jpg" alt="Elites logo">ELITES</a>
+    <nav>
+      <a href="#offer">What we offer</a>
+      <a href="#games">Games</a>
+      <a href="#join">Join</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="tag">ROBLOX CLAN RECRUITMENT</div>
+        <h1>ELITES<span>CLAN</span></h1>
+        <p>A brand-new, active community for Roblox players who want to hang out, game, and make friends. Get in early and claim an early member role.</p>
+        <div class="btns">
+          <!-- CHANGE THIS LINK to your Discord invite -->
+          <a class="btn fill" href="https://discord.gg/KV9f2eBzG" target="_blank" rel="noopener">Join Discord</a>
+          <a class="btn ghost" href="#join">See requirements</a>
+        </div>
+      </div>
+      <div class="logo"><img src="logo.jpg" alt="Elites Clan logo"></div>
+    </div>
+  </section>
+
+  <section class="block" id="offer">
+    <div class="wrap">
+      <h2>What we offer</h2>
+      <div class="offer">
+        <div class="card"><h3>Easy onboarding</h3><p>Self-roles and server introductions so you can jump right in.</p></div>
+        <div class="card"><h3>Levels and rewards</h3><p>Level up in chat and unlock rewards, bot commands, and a server economy.</p></div>
+        <div class="card"><h3>Events and giveaways</h3><p>Server events, giveaways, and a place to share suggestions.</p></div>
+        <div class="card"><h3>Clan tryouts</h3><p>Open tryouts, staff applications, and partner program spots.</p></div>
+        <div class="card"><h3>Booster perks</h3><p>Custom roles, exclusive chat access, and special perks for boosters.</p></div>
+        <div class="card"><h3>Showcases</h3><p>A gallery for artists and designers to show off their work.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="games">
+    <div class="wrap">
+      <h2>Game hubs</h2>
+      <ul class="games">
+        <li>Blox Fruits</li><li>Rivals</li><li>Evade</li><li>Da Hood</li><li>Murder Mystery 2</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="join">
+    <div class="wrap">
+      <h2>Requirements</h2>
+      <ul class="rules">
+        <li>You must be 13 or older to join.</li>
+        <li>Respect everyone, follow the rules, and keep it friendly.</li>
+        <li>Join the Discord and open a ticket in clan tryouts.</li>
+      </ul>
+      <div class="btns" style="margin-top:24px">
+        <a class="btn fill" href="https://discord.gg/KV9f2eBzG" target="_blank" rel="noopener">Join Discord</a>
+        <!-- Add your links, then remove the comment markers:
+        <a class="btn ghost" href="YOUR_ROBLOX_GROUP_LINK" target="_blank" rel="noopener">Roblox group</a>
+        <a class="btn ghost" href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener">Watch on YouTube</a>
+        -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Elites Clan. Not affiliated with Roblox.</footer>
+</body>
+</html>
