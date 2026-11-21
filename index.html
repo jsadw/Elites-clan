@@ -1,647 +1,124 @@
-Replace your current HTML with this complete version. It combines your welcome screen with the new fonts, animated text, glowing logo, and a **2-second** loading screen.
 
-This updates the app welcome screen. The duplicate owner links shown in your screenshot belong to the separate website and aren’t included in this HTML. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/794965825/1fbd59ee-d07a-4546-be9d-99d791ab8e2a/image.jpg)
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elites Clan</title>
 
-  <meta
-    name="theme-color"
-    content="#070506"
-  >
+<style>
+/* LOADING SCREEN */
+body.site-loading {
+    overflow: hidden;
+}
 
-  <title>Elites | Clan Hub</title>
+#siteLoader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #070506;
+    transition: opacity .4s ease, visibility .4s ease;
+}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+#siteLoader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
-  <style>
-    :root {
-      --bg: #070506;
-      --line: #2a1214;
-      --text: #f4ecec;
-      --muted: #a8999b;
-      --red: #e8141c;
-      --red-soft: #ff5a5f;
-      --loading-duration: 2000ms;
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 20px;
+    background: #e8141c;
+    color: white;
+    font-size: 52px;
+    font-weight: 900;
+    box-shadow: 0 0 55px rgba(232,20,28,.5);
+    animation: logoPulse .9s infinite alternate;
+}
+
+.loader-title {
+    margin-top: 20px;
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.loader-bar {
+    width: 150px;
+    height: 4px;
+    margin: 22px auto 0;
+    background: #301014;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.loader-bar::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #e8141c;
+    animation: loading 1.7s ease-in-out forwards;
+}
+
+@keyframes logoPulse {
+    to {
+        transform: scale(1.08);
+        box-shadow: 0 0 80px rgba(232,20,28,.7);
     }
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+@keyframes loading {
+    from { transform: translateX(-110%); }
+    to { transform: translateX(280%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-logo, .loader-bar::after {
+        animation: none;
     }
-
-    html {
-      min-height: 100%;
-      background: var(--bg);
-    }
-
-    body {
-      min-height: 100vh;
-      min-height: 100svh;
-      padding: 36px 0;
-      display: grid;
-      place-items: center;
-      position: relative;
-      isolation: isolate;
-      overflow-x: hidden;
-
-      background:
-        radial-gradient(
-          ellipse at 50% 55%,
-          rgba(232, 20, 28, .24),
-          transparent 62%
-        ),
-        radial-gradient(
-          ellipse at 50% 100%,
-          rgba(232, 20, 28, .15),
-          transparent 55%
-        ),
-        var(--bg);
-
-      color: var(--text);
-      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    /* Background lettering */
-    .bgtext {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      pointer-events: none;
-      user-select: none;
-
-      font-family: "Barlow Condensed", Impact, sans-serif;
-      font-size: clamp(110px, 28vw, 420px);
-      font-weight: 900;
-      font-style: italic;
-      letter-spacing: .04em;
-
-      color: transparent;
-      -webkit-text-stroke: 2px rgba(232, 20, 28, .28);
-      text-shadow: 0 0 60px rgba(232, 20, 28, .2);
-    }
-
-    /* Logo */
-    .mark {
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 22px;
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: 18px;
-
-      display: grid;
-      place-items: center;
-
-      background: linear-gradient(145deg, #ff343c, #bc0710);
-      color: #fff;
-
-      font-family: "Barlow Condensed", Impact, sans-serif;
-      font-size: 46px;
-      font-weight: 900;
-      font-style: italic;
-
-      box-shadow: 0 0 36px rgba(232, 20, 28, .45);
-    }
-
-    /* Loading screen */
-    #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      text-align: center;
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(232, 20, 28, .12),
-          transparent 55%
-        ),
-        var(--bg);
-
-      transition:
-        opacity .4s ease,
-        visibility .4s ease;
-    }
-
-    #loader.done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    #loader .mark {
-      animation: logoGlow 1.2s ease-in-out infinite;
-    }
-
-    #loader h1 {
-      font-size: 40px;
-      letter-spacing: .08em;
-    }
-
-    #loader p {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: .04em;
-    }
-
-    .bar {
-      width: min(220px, 70vw);
-      height: 4px;
-      margin: 26px auto 0;
-      overflow: hidden;
-      border-radius: 999px;
-      background: var(--line);
-    }
-
-    .bar i {
-      display: block;
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(
-        90deg,
-        var(--red),
-        var(--red-soft)
-      );
-      box-shadow: 0 0 12px var(--red);
-      animation: fill var(--loading-duration) linear forwards;
-    }
-
-    /* Main screen */
-    #main {
-      position: relative;
-      width: min(440px, calc(100% - 40px));
-      padding: 30px 24px;
-      text-align: center;
-
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 24px;
-      background: rgba(12, 7, 9, .78);
-
-      box-shadow:
-        0 24px 80px rgba(0, 0, 0, .4),
-        0 0 45px rgba(232, 20, 28, .06);
-
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .5s ease;
-    }
-
-    #main.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    h1 {
-      font-family: "Barlow Condensed", Impact, sans-serif;
-      font-size: clamp(36px, 8vw, 48px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: .015em;
-    }
-
-    .accent {
-      color: var(--red-soft);
-    }
-
-    .sub {
-      margin: 10px 0 22px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    /* Discord counts */
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 22px;
-      margin-bottom: 20px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .stats b {
-      margin-right: 4px;
-      color: var(--text);
-      font-size: 17px;
-    }
-
-    .dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      margin-right: 6px;
-      border-radius: 50%;
-      background: #3ba55d;
-      box-shadow: 0 0 10px rgba(59, 165, 93, .35);
-    }
-
-    /* Games */
-    .games {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 26px;
-      list-style: none;
-    }
-
-    .games li {
-      padding: 7px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-
-      background: rgba(20, 10, 13, .85);
-      color: #e3d8da;
-      font-size: 12px;
-
-      transition:
-        border-color .2s ease,
-        background-color .2s ease;
-    }
-
-    .games li:hover {
-      border-color: var(--red-soft);
-      background: rgba(232, 20, 28, .12);
-    }
-
-    /* Buttons */
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      width: 100%;
-      min-height: 52px;
-      padding: 14px 16px;
-
-      border: 1px solid var(--red);
-      border-radius: 12px;
-
-      font: inherit;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.4;
-      text-decoration: none;
-      cursor: pointer;
-
-      transition:
-        transform .2s ease,
-        background-color .2s ease,
-        box-shadow .2s ease;
-    }
-
-    .btn svg {
-      width: 21px;
-      height: 21px;
-      flex-shrink: 0;
-    }
-
-    .btn.main {
-      border-color: #f6f5ef;
-      background: #f6f5ef;
-      color: #111;
-    }
-
-    .btn.main:hover:not(:disabled) {
-      background: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(255, 255, 255, .12);
-    }
-
-    .btn.main:disabled {
-      opacity: .75;
-      cursor: wait;
-    }
-
-    .btn.alt {
-      margin-top: 12px;
-      background: rgba(7, 5, 6, .7);
-      color: var(--text);
-    }
-
-    .btn.alt:hover {
-      background: rgba(232, 20, 28, .15);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(232, 20, 28, .15);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn:focus-visible {
-      outline: 2px solid #fff;
-      outline-offset: 4px;
-    }
-
-    .note {
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .footer {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, .06);
-      color: #837477;
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    /* Entrance animations */
-    #main.show > * {
-      animation: reveal .65s ease both;
-    }
-
-    #main.show > :nth-child(2) { animation-delay: .08s; }
-    #main.show > :nth-child(3) { animation-delay: .16s; }
-    #main.show > :nth-child(4) { animation-delay: .24s; }
-    #main.show > :nth-child(5) { animation-delay: .32s; }
-    #main.show > :nth-child(6) { animation-delay: .40s; }
-    #main.show > :nth-child(7) { animation-delay: .48s; }
-    #main.show > :nth-child(8) { animation-delay: .56s; }
-    #main.show > :nth-child(9) { animation-delay: .64s; }
-
-    #main.show > .mark {
-      animation:
-        reveal .65s ease both,
-        logoGlow 3s ease-in-out .65s infinite;
-    }
-
-    @keyframes fill {
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes reveal {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes logoGlow {
-      0%, 100% {
-        box-shadow: 0 0 30px rgba(232, 20, 28, .4);
-      }
-
-      50% {
-        box-shadow: 0 0 55px rgba(232, 20, 28, .75);
-      }
-    }
-
-    @media (max-width: 360px) {
-      #main {
-        width: calc(100% - 24px);
-        padding: 26px 16px;
-      }
-
-      .btn {
-        font-size: 13px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .bar i {
-        width: 100%;
-      }
-    }
-  </style>
-
-  <!-- Show the content even when JavaScript is disabled -->
-  <noscript>
-    <style>
-      #loader {
-        display: none;
-      }
-
-      #main {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      #go {
-        display: none;
-      }
-    </style>
-  </noscript>
+}
+</style>
 </head>
 
-<body>
-  <div class="bgtext" aria-hidden="true">ELITES</div>
+<body class="site-loading">
 
-  <!-- Two-second loading screen -->
-  <div id="loader" role="status" aria-live="polite">
-    <div>
-      <div class="mark" aria-hidden="true">E</div>
-      <h1>ELITES</h1>
-      <p>Loading your clan hub...</p>
-      <div class="bar" aria-hidden="true">
-        <i></i>
-      </div>
+<!-- LOADING SCREEN -->
+<div id="siteLoader">
+    <div class="loader-content">
+        <div class="loader-logo">E</div>
+        <div class="loader-title">ELITES CLAN</div>
+        <div class="loader-bar"></div>
     </div>
-  </div>
+</div>
 
-  <!-- Main welcome screen -->
-  <main id="main" inert>
-    <div class="mark" aria-hidden="true">E</div>
+<!-- YOUR ORIGINAL WEBSITE CONTENT GOES HERE -->
+<!-- Keep your existing website HTML in this section -->
 
-    <h1>Welcome to <span class="accent">Elites</span></h1>
+<script>
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        const loader = document.getElementById("siteLoader");
 
-    <p class="sub">The clan hub for Roblox players</p>
+        loader.classList.add("is-hidden");
+        document.body.classList.remove("site-loading");
+    }, 2000);
+});
+</script>
 
-    <div class="stats" id="stats" hidden>
-      <span>
-        <b id="mem">0</b>members
-      </span>
-
-      <span>
-        <span class="dot" aria-hidden="true"></span>
-        <b id="on">0</b>online
-      </span>
-    </div>
-
-    <ul class="games" aria-label="Games we play">
-      <li>Blox Fruits</li>
-      <li>Rivals</li>
-      <li>Evade</li>
-      <li>Da Hood</li>
-      <li>Murder Mystery 2</li>
-    </ul>
-
-    <button class="btn main" id="go" type="button">
-      <svg
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M20.3 4.4a19.8 19.8 0 0 0-4.9-1.5l-.6 1.2a18.3 18.3 0 0 0-5.6 0l-.6-1.2a19.7 19.7 0 0 0-4.9 1.5C.6 9 .1 13.4.4 17.8a20 20 0 0 0 6 3l1.2-2a12 12 0 0 1-1.9-.9l.5-.4a14.3 14.3 0 0 0 11.6 0l.5.4a12 12 0 0 1-1.9.9l1.2 2a20 20 0 0 0 6-3c.4-5.1-.7-9.5-3.3-13.4ZM8.2 15.1c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm7.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/>
-      </svg>
-
-      <span id="go-label">Continue with Discord</span>
-    </button>
-
-    <noscript>
-      <a
-        class="btn main"
-        href="https://discord.gg/bnHgkyETB"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Join our Discord
-      </a>
-    </noscript>
-
-    <a
-      class="btn alt"
-      href="https://jsadw.github.io/Elites-clan/#join"
-    >
-      Go straight to our website
-      <span aria-hidden="true">&rarr;</span>
-    </a>
-
-    <p class="note" id="note" aria-live="polite">
-      Join our Discord, then open a ticket in clan tryouts
-      to join the clan. You must be 13 or older.
-    </p>
-
-    <footer class="footer">
-      Elites Clan &middot; Not affiliated with Roblox.
-    </footer>
-  </main>
-
-  <script>
-    (function () {
-      "use strict";
-
-      var LOADING_MS = 2000;
-      var DISCORD_CODE = "bnHgkyETB";
-      var DISCORD_URL = "https://discord.gg/" + DISCORD_CODE;
-      var SITE_URL = "https://jsadw.github.io/Elites-clan/#join";
-
-      var loader = document.getElementById("loader");
-      var main = document.getElementById("main");
-      var go = document.getElementById("go");
-      var goLabel = document.getElementById("go-label");
-      var note = document.getElementById("note");
-
-      // Reveal the main screen after two seconds.
-      setTimeout(function () {
-        main.removeAttribute("inert");
-        main.classList.add("show");
-        loader.classList.add("done");
-
-        setTimeout(function () {
-          loader.hidden = true;
-        }, 400);
-      }, LOADING_MS);
-
-      // Live Discord counts. Keep them hidden if unavailable.
-      fetch(
-        "https://discord.com/api/v9/invites/" +
-        encodeURIComponent(DISCORD_CODE) +
-        "?with_counts=true"
-      )
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error("Discord counts unavailable");
-          }
-
-          return response.json();
-        })
-        .then(function (data) {
-          if (typeof data.approximate_member_count !== "number") {
-            return;
-          }
-
-          document.getElementById("mem").textContent =
-            data.approximate_member_count.toLocaleString();
-
-          document.getElementById("on").textContent =
-            (data.approximate_presence_count || 0).toLocaleString();
-
-          document.getElementById("stats").hidden = false;
-        })
-        .catch(function () {
-          // The rest of the page works without Discord counts.
-        });
-
-      // Open Discord, then redirect this screen to the website.
-      go.addEventListener("click", function () {
-        go.disabled = true;
-        goLabel.textContent = "Opening Discord...";
-
-        note.textContent =
-          "Discord is opening in a new tab. " +
-          "Taking you to our website next.";
-
-        window.open(
-          DISCORD_URL,
-          "_blank",
-          "noopener,noreferrer"
-        );
-
-        setTimeout(function () {
-          window.location.href = SITE_URL;
-        }, 1800);
-      });
-    })();
-  </script>
-
-  <noscript>
-    <style>
-      #main[inert] {
-        pointer-events: auto;
-        user-select: auto;
-      }
-    </style>
-  </noscript>
 </body>
 </html>
