@@ -4,486 +4,520 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>★ Elites Clan ✦</title>
+<title>ELITES | Clan Hub</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg:#070506;
-  --card:#0e0a0b;
-  --line:#2a1214;
-  --text:#f4ecec;
-  --muted:#a8999b;
-  --red:#e8141c;
-  --red-soft:#ff5a5f;
-  --gold:#ffd700;
+ --bg:#070506;
+ --card:#100b0d;
+ --line:#351216;
+ --text:#fff;
+ --muted:#aa999c;
+ --red:#e8141c;
+ --soft:#ff555d;
+ --gold:#ffd700;
 }
 
 * {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  scroll-behavior:smooth;
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+ scroll-behavior:smooth;
 }
 
 body {
-  background:
-    radial-gradient(ellipse at 50% 0%,rgba(232,20,28,.22),transparent 55%),
-    var(--bg);
-  color:var(--text);
-  font-family:"Plus Jakarta Sans",sans-serif;
-  line-height:1.6;
-  overflow-x:hidden;
+ background:
+ radial-gradient(ellipse at 50% 0%,#5b101a55,transparent 55%),
+ #070506;
+ color:var(--text);
+ font-family:'Plus Jakarta Sans',sans-serif;
+ line-height:1.7;
+ overflow-x:hidden;
 }
 
 h1,h2,h3,.brand {
-  font-family:"Orbitron",sans-serif;
+ font-family:'Orbitron',sans-serif;
 }
 
 /* LOADING SCREEN */
 
 #loader {
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  background:var(--bg);
-  transition:opacity .4s ease;
+ position:fixed;
+ inset:0;
+ z-index:9999;
+ background:#070506;
+ display:grid;
+ place-items:center;
+ text-align:center;
+ transition:opacity .5s ease,visibility .5s ease;
 }
 
 #loader.done {
-  opacity:0;
-  pointer-events:none;
+ opacity:0;
+ visibility:hidden;
+ pointer-events:none;
 }
 
-.mark {
-  width:68px;
-  height:68px;
-  margin:0 auto 18px;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--red),#990b10);
-  display:grid;
-  place-items:center;
-  font-size:34px;
-  font-weight:900;
-  color:white;
-  box-shadow:0 0 36px rgba(232,20,28,.65);
-  animation:pulse 1.1s infinite;
+.loader-logo {
+ width:75px;
+ height:75px;
+ margin:auto auto 20px;
+ border-radius:17px;
+ display:grid;
+ place-items:center;
+ font-family:'Orbitron',sans-serif;
+ font-size:40px;
+ font-weight:900;
+ background:linear-gradient(135deg,#ff202a,#8c0008);
+ box-shadow:0 0 35px #e8141c99;
+ animation:logoPulse 1.2s infinite;
 }
 
 #loader h2 {
-  font-size:25px;
-  letter-spacing:2px;
+ font-family:'Orbitron',sans-serif;
+ font-size:27px;
+ letter-spacing:5px;
+ background:linear-gradient(90deg,#fff,#ff555d,#ffd700,#fff);
+ background-size:200%;
+ color:transparent;
+ background-clip:text;
+ animation:gradientMove 2s linear infinite;
 }
 
 #loader p {
-  color:var(--muted);
-  margin-top:7px;
-  font-size:13px;
-  letter-spacing:2px;
+ color:var(--muted);
+ font-size:12px;
+ letter-spacing:3px;
+ margin-top:8px;
+ text-transform:uppercase;
 }
 
-.bar {
-  width:220px;
-  height:4px;
-  margin:20px auto;
-  background:var(--line);
-  border-radius:5px;
-  overflow:hidden;
+.loading-bar {
+ width:230px;
+ height:4px;
+ margin:25px auto;
+ background:#291014;
+ border-radius:20px;
+ overflow:hidden;
 }
 
-.bar i {
-  display:block;
-  height:100%;
-  background:linear-gradient(90deg,var(--red),var(--gold));
-  animation:fill 2s linear forwards;
+.loading-bar span {
+ display:block;
+ height:100%;
+ width:0;
+ background:linear-gradient(90deg,#e8141c,#ffd700);
+ box-shadow:0 0 15px #e8141c;
+ animation:loading 2s linear forwards;
 }
 
-@keyframes fill {
-  to {width:100%}
+@keyframes loading {
+ to {width:100%}
 }
 
-@keyframes pulse {
-  50% {
-    transform:scale(1.05);
-    box-shadow:0 0 60px rgba(232,20,28,.95);
-  }
+@keyframes logoPulse {
+ 50% {transform:scale(1.08);box-shadow:0 0 65px #e8141ccc}
 }
 
-@keyframes shine {
-  to {background-position:200% center}
+@keyframes gradientMove {
+ to {background-position:200% center}
 }
 
-@keyframes fadeUp {
-  from {opacity:0;transform:translateY(20px)}
-  to {opacity:1;transform:translateY(0)}
-}
-
-/* NAVBAR */
+/* NAVIGATION */
 
 nav {
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(7,5,6,.9);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  padding:16px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+ position:sticky;
+ top:0;
+ z-index:100;
+ padding:15px 6%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ background:#080607eF;
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid var(--line);
 }
 
 .brand {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:white;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:2px;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ color:white;
+ font-size:18px;
+ font-weight:900;
+ letter-spacing:3px;
+ text-decoration:none;
 }
 
-.brand-badge {
-  width:34px;
-  height:34px;
-  background:var(--red);
-  border-radius:8px;
-  display:grid;
-  place-items:center;
+.brand-icon {
+ width:35px;
+ height:35px;
+ display:grid;
+ place-items:center;
+ background:var(--red);
+ border-radius:8px;
+ box-shadow:0 0 20px #e8141c66;
 }
 
 .nav-links {
-  display:flex;
-  gap:24px;
+ display:flex;
+ gap:25px;
 }
 
 .nav-links a {
-  color:var(--muted);
-  text-decoration:none;
-  font-size:13px;
-  font-weight:600;
-  transition:.2s;
+ color:var(--muted);
+ text-decoration:none;
+ font-size:13px;
+ font-weight:700;
+ transition:.3s;
 }
 
 .nav-links a:hover {
-  color:white;
-}
-
-/* BUTTONS */
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 22px;
-  border-radius:7px;
-  border:1px solid var(--red);
-  font-weight:700;
-  font-size:14px;
-  text-decoration:none;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.btn.primary {
-  background:var(--red);
-  color:white;
-  box-shadow:0 4px 20px rgba(232,20,28,.3);
-}
-
-.btn.primary:hover {
-  background:var(--red-soft);
-  transform:translateY(-3px);
-}
-
-.btn.outline {
-  background:transparent;
-  color:white;
-}
-
-.btn.outline:hover {
-  background:rgba(232,20,28,.18);
-  transform:translateY(-3px);
+ color:white;
+ text-shadow:0 0 15px var(--red);
 }
 
 /* HERO */
 
 .hero {
-  padding:90px 6% 75px;
-  max-width:1200px;
-  margin:auto;
-  background-image:
-    linear-gradient(rgba(42,18,20,.5) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(42,18,20,.5) 1px,transparent 1px);
-  background-size:42px 42px;
-  background-position:center;
-  animation:fadeUp .8s ease;
+ min-height:540px;
+ padding:100px 7%;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ background:
+ linear-gradient(#25101444 1px,transparent 1px),
+ linear-gradient(90deg,#25101444 1px,transparent 1px),
+ radial-gradient(ellipse at 75% 50%,#8e0d1955,transparent 55%);
+ background-size:45px 45px;
 }
 
 .tag {
-  color:var(--red-soft);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:3px;
+ color:var(--soft);
+ font-size:12px;
+ font-weight:800;
+ letter-spacing:4px;
+ animation:fadeUp .8s both;
 }
 
 .hero h1 {
-  font-size:clamp(55px,9vw,100px);
-  font-weight:900;
-  font-style:italic;
-  line-height:1.05;
-  margin:18px 0;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#fff,#ff5a5f,var(--gold),#fff);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shine 5s linear infinite;
+ font-family:'Orbitron',sans-serif;
+ font-size:clamp(55px,10vw,105px);
+ line-height:1.1;
+ font-weight:900;
+ font-style:italic;
+ margin:20px 0;
+ letter-spacing:4px;
+ background:linear-gradient(90deg,#fff,#ff444d,#ffd700,#fff);
+ background-size:250%;
+ color:transparent;
+ background-clip:text;
+ animation:gradientMove 5s linear infinite,fadeUp 1s both;
 }
 
 .hero p {
-  color:var(--muted);
-  max-width:560px;
-  margin-bottom:25px;
+ max-width:570px;
+ color:var(--muted);
+ font-size:15px;
+ animation:fadeUp 1.2s both;
 }
 
-.hero-btns {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+.hero-buttons {
+ display:flex;
+ flex-wrap:wrap;
+ gap:15px;
+ margin-top:30px;
+ animation:fadeUp 1.4s both;
 }
+
+/* BUTTONS */
+
+.btn {
+ display:inline-flex;
+ justify-content:center;
+ align-items:center;
+ padding:13px 24px;
+ border-radius:8px;
+ border:1px solid var(--red);
+ font-weight:800;
+ font-size:13px;
+ text-decoration:none;
+ transition:.3s;
+ cursor:pointer;
+}
+
+.primary {
+ color:white;
+ background:var(--red);
+ box-shadow:0 0 20px #e8141c44;
+}
+
+.primary:hover {
+ background:var(--soft);
+ transform:translateY(-4px);
+ box-shadow:0 0 30px #e8141c88;
+}
+
+.outline {
+ color:white;
+ background:#100b0d;
+}
+
+.outline:hover {
+ background:#e8141c22;
+ transform:translateY(-4px);
+}
+
+/* STATS */
 
 .live-stats {
-  display:inline-flex;
-  gap:24px;
-  margin-top:28px;
-  padding:11px 20px;
-  border:1px solid var(--line);
-  background:var(--card);
-  border-radius:30px;
-  color:var(--muted);
-  font-size:13px;
+ display:flex;
+ gap:28px;
+ margin-top:30px;
+ color:var(--muted);
+ font-size:13px;
 }
 
 .live-stats b {
-  color:white;
+ color:white;
+ font-family:'Orbitron',sans-serif;
+ font-size:19px;
 }
 
 .dot {
-  display:inline-block;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#3ba55d;
-  margin-right:6px;
+ display:inline-block;
+ width:8px;
+ height:8px;
+ background:#3ba55d;
+ border-radius:50%;
+ box-shadow:0 0 10px #3ba55d;
 }
 
 /* SECTIONS */
 
 section {
-  padding:65px 6%;
-  max-width:1200px;
-  margin:auto;
-  scroll-margin-top:75px;
+ max-width:1200px;
+ padding:75px 6%;
+ margin:auto;
+ scroll-margin-top:80px;
 }
 
 .sec-title {
-  font-size:27px;
-  margin-bottom:25px;
+ font-size:25px;
+ margin-bottom:12px;
+ letter-spacing:2px;
+}
+
+.sec-title::after {
+ content:"";
+ display:block;
+ width:65px;
+ height:3px;
+ margin-top:12px;
+ background:linear-gradient(90deg,var(--red),transparent);
 }
 
 .sec-sub {
-  color:var(--muted);
-  margin-top:-15px;
-  margin-bottom:25px;
+ color:var(--muted);
+ margin-bottom:28px;
+ font-size:14px;
 }
 
+/* CARDS */
+
 .grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+ gap:18px;
 }
 
 .card {
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:24px;
-  transition:.25s;
+ position:relative;
+ overflow:hidden;
+ background:linear-gradient(145deg,#160d10,#0c0809);
+ border:1px solid var(--line);
+ border-radius:13px;
+ padding:25px;
+ transition:transform .35s,border-color .35s,box-shadow .35s;
+}
+
+.card::before {
+ content:"";
+ position:absolute;
+ top:0;
+ left:-100%;
+ width:100%;
+ height:2px;
+ background:linear-gradient(90deg,transparent,var(--red),transparent);
+ transition:.6s;
+}
+
+.card:hover::before {
+ left:100%;
 }
 
 .card:hover {
-  border-color:var(--red);
-  transform:translateY(-4px);
-  box-shadow:0 8px 25px rgba(232,20,28,.08);
+ transform:translateY(-7px);
+ border-color:var(--red);
+ box-shadow:0 12px 35px #e8141c19;
 }
 
 .card h3 {
-  color:var(--red-soft);
-  font-size:15px;
-  margin-bottom:10px;
+ font-size:14px;
+ color:var(--soft);
+ margin-bottom:12px;
+ letter-spacing:1px;
 }
 
 .card p {
-  color:var(--muted);
-  font-size:14px;
+ color:var(--muted);
+ font-size:13px;
 }
 
 /* GAMES */
 
 .games {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  list-style:none;
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ list-style:none;
 }
 
 .games li {
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:12px 22px;
-  border-radius:30px;
-  font-weight:700;
-  font-size:14px;
-  transition:.2s;
+ padding:12px 23px;
+ border:1px solid var(--line);
+ background:var(--card);
+ border-radius:30px;
+ font-weight:700;
+ font-size:13px;
+ transition:.3s;
 }
 
 .games li:hover {
-  border-color:var(--red);
-  background:rgba(232,20,28,.12);
-  transform:translateY(-3px);
+ background:#e8141c22;
+ border-color:var(--red);
+ transform:translateY(-4px);
+ box-shadow:0 0 20px #e8141c22;
 }
 
-/* LEADERSHIP AND REQUIREMENTS */
+/* LEADERSHIP */
 
 .two-col {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:20px;
 }
 
 .req-list {
-  list-style:none;
-  margin:18px 0 24px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+ list-style:none;
+ display:flex;
+ flex-direction:column;
+ gap:12px;
+ margin-top:18px;
 }
 
 .req-list li {
-  color:var(--muted);
-  padding-left:20px;
-  position:relative;
-  font-size:14px;
+ color:var(--muted);
+ font-size:13px;
+ padding-left:20px;
+ position:relative;
 }
 
-.req-list li:before {
-  content:"▸";
-  color:var(--red);
-  position:absolute;
-  left:0;
-  font-weight:900;
+.req-list li::before {
+ content:'▸';
+ color:var(--red);
+ position:absolute;
+ left:0;
 }
 
 /* JOIN */
 
 .join-card {
-  text-align:center;
-  padding:45px 25px;
-  background:linear-gradient(135deg,#18090c,#0e0a0b);
-  border:1px solid var(--line);
-  border-radius:14px;
+ text-align:center;
+ padding:55px 25px;
+ border:1px solid var(--line);
+ border-radius:15px;
+ background:radial-gradient(ellipse at center,#5b0b1455,transparent 75%),#100b0d;
 }
 
 .join-card h2 {
-  margin-bottom:12px;
+ font-size:clamp(22px,4vw,34px);
+ margin-bottom:15px;
+ background:linear-gradient(90deg,#fff,#ff555d,#ffd700);
+ color:transparent;
+ background-clip:text;
 }
 
 .join-card p {
-  color:var(--muted);
-  margin-bottom:22px;
+ color:var(--muted);
+ margin-bottom:25px;
 }
 
 /* FOOTER */
 
 footer {
-  border-top:1px solid var(--line);
-  padding:35px 6%;
-  margin-top:40px;
-  max-width:1200px;
-  margin-left:auto;
-  margin-right:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:18px;
-  color:var(--muted);
-  font-size:13px;
+ max-width:1200px;
+ margin:30px auto 0;
+ padding:35px 6%;
+ border-top:1px solid var(--line);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:15px;
+ color:var(--muted);
+ font-size:12px;
 }
 
-.footer-link {
-  color:var(--red-soft);
-  text-decoration:none;
-  font-weight:700;
+footer a {
+ color:var(--soft);
+ text-decoration:none;
+ font-weight:800;
 }
+
+/* SCROLL ANIMATION */
 
 .reveal {
-  opacity:0;
-  transform:translateY(20px);
-  transition:.7s ease;
+ opacity:0;
+ transform:translateY(30px);
+ transition:opacity .8s ease,transform .8s ease;
 }
 
 .reveal.active {
-  opacity:1;
-  transform:translateY(0);
+ opacity:1;
+ transform:translateY(0);
 }
 
+@keyframes fadeUp {
+ from {opacity:0;transform:translateY(25px)}
+ to {opacity:1;transform:translateY(0)}
+}
+
+/* MOBILE */
+
 @media(max-width:680px) {
-  .nav-links {
-    gap:10px;
-  }
-
-  .nav-links a {
-    font-size:11px;
-  }
-
-  nav {
-    padding:13px 4%;
-  }
-
-  .hero {
-    padding:65px 6%;
-  }
-
-  section {
-    padding:45px 6%;
-  }
+ nav {padding:13px 4%}
+ .nav-links {gap:10px}
+ .nav-links a {font-size:10px}
+ .hero {padding:75px 6%;min-height:470px}
+ section {padding:50px 6%}
 }
 
 @media(max-width:420px) {
-  .nav-links {
-    display:none;
-  }
-
-  .hero h1 {
-    font-size:53px;
-  }
+ .nav-links {display:none}
+ .hero h1 {font-size:55px}
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior:auto!important;
-    animation:none!important;
-    transition:none!important;
-  }
+ *,*::before,*::after {
+  animation:none!important;
+  transition:none!important;
+  scroll-behavior:auto!important;
+ }
+ .reveal {opacity:1;transform:none}
 }
 </style>
 </head>
@@ -491,267 +525,192 @@ footer {
 <body>
 
 <!-- LOADING SCREEN -->
-
 <div id="loader">
-  <div>
-    <div class="mark">E</div>
-    <h2>ELITES CLAN</h2>
-    <p>Entering the Elites Arena...</p>
-    <div class="bar"><i></i></div>
-  </div>
+ <div>
+  <div class="loader-logo">E</div>
+  <h2>ELITES CLAN</h2>
+  <p>Entering the Elites Arena</p>
+  <div class="loading-bar"><span></span></div>
+ </div>
 </div>
 
 <!-- NAVIGATION -->
-
 <nav>
-  <a href="#" class="brand">
-    <span class="brand-badge">E</span>
-    ELITES
-  </a>
+ <a href="#" class="brand">
+  <span class="brand-icon">E</span>
+  ELITES
+ </a>
 
-  <div class="nav-links">
-    <a href="#offer">What we offer</a>
-    <a href="#games">Games</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#join">Join</a>
-  </div>
+ <div class="nav-links">
+  <a href="#offer">What we offer</a>
+  <a href="#games">Games</a>
+  <a href="#leadership">Leadership</a>
+  <a href="#join">Join</a>
+ </div>
 </nav>
 
 <!-- HERO -->
-
 <header class="hero">
-  <div class="tag">ROBLOX CLAN RECRUITMENT</div>
+ <div class="tag">ROBLOX CLAN RECRUITMENT</div>
 
-  <h1>ELITES<br>CLAN</h1>
+ <h1>ELITES<br>CLAN</h1>
 
-  <p>
-    A brand-new, active community for Roblox players
-    who want to hang out, game, and make friends.
-    Get in early and claim an early member role.
-  </p>
+ <p>
+  A brand-new, active community for Roblox players
+  who want to hang out, game, and make friends.
+  Get in early and claim an early member role.
+ </p>
 
-  <div class="hero-btns">
-    <a href="https://discord.gg/5J5QCGcay"
-       target="_blank" rel="noopener"
-       class="btn primary">
-      Join Discord ↗
-    </a>
+ <div class="hero-buttons">
+  <a href="https://discord.gg/5J5QCGcay"
+     target="_blank" rel="noopener"
+     class="btn primary">JOIN DISCORD ↗</a>
 
-    <a href="#join" class="btn outline">
-      See requirements
-    </a>
-  </div>
+  <a href="#join" class="btn outline">SEE REQUIREMENTS</a>
+ </div>
 
-  <div class="live-stats">
-    <span><b>73+</b> members</span>
-    <span><span class="dot"></span><b>28</b> online</span>
-  </div>
+ <div class="live-stats">
+  <span><b>73+</b> members</span>
+  <span><span class="dot"></span> <b>28</b> online</span>
+ </div>
 </header>
 
-<!-- WHAT WE OFFER -->
-
+<!-- OFFER -->
 <section id="offer" class="reveal">
-  <h2 class="sec-title">What we offer</h2>
+ <h2 class="sec-title">WHAT WE OFFER</h2>
+ <p class="sec-sub">Everything you need to enjoy the Elites community.</p>
 
-  <div class="grid">
-
-    <div class="card">
-      <h3>Easy onboarding</h3>
-      <p>
-        Self-roles and server introductions
-        so you can jump right in.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Levels and rewards</h3>
-      <p>
-        Level up in chat and unlock rewards,
-        bot commands, and a server economy.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Events and giveaways</h3>
-      <p>
-        Server events, giveaways, and a place
-        to share suggestions.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Clan tryouts</h3>
-      <p>
-        Open tryouts, staff applications,
-        and partner program spots.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Booster perks</h3>
-      <p>
-        Custom roles, exclusive chat access,
-        and special perks for boosters.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Showcases</h3>
-      <p>
-        A gallery for artists and designers
-        to show off their work.
-      </p>
-    </div>
-
+ <div class="grid">
+  <div class="card">
+   <h3>Easy onboarding</h3>
+   <p>Self-roles and server introductions so you can jump right in.</p>
   </div>
+
+  <div class="card">
+   <h3>Levels and rewards</h3>
+   <p>Level up in chat and unlock rewards, bot commands, and a server economy.</p>
+  </div>
+
+  <div class="card">
+   <h3>Events and giveaways</h3>
+   <p>Server events, giveaways, and a place to share suggestions.</p>
+  </div>
+
+  <div class="card">
+   <h3>Clan tryouts</h3>
+   <p>Open tryouts, staff applications, and partner program spots.</p>
+  </div>
+
+  <div class="card">
+   <h3>Booster perks</h3>
+   <p>Custom roles, exclusive chat access, and special perks for boosters.</p>
+  </div>
+
+  <div class="card">
+   <h3>Showcases</h3>
+   <p>A gallery for artists and designers to show off their work.</p>
+  </div>
+ </div>
 </section>
 
 <!-- GAMES -->
-
 <section id="games" class="reveal">
-  <h2 class="sec-title">Game hubs</h2>
+ <h2 class="sec-title">GAME HUBS</h2>
+ <p class="sec-sub">Play your favorite games with Elites.</p>
 
-  <p class="sec-sub">
-    Play your favorite games with the Elites community.
-  </p>
-
-  <ul class="games">
-    <li>Blox Fruits</li>
-    <li>Rivals</li>
-    <li>Evade</li>
-    <li>Da Hood</li>
-    <li>Murder Mystery 2</li>
-  </ul>
+ <ul class="games">
+  <li>Blox Fruits</li>
+  <li>Rivals</li>
+  <li>Evade</li>
+  <li>Da Hood</li>
+  <li>Murder Mystery 2</li>
+ </ul>
 </section>
 
 <!-- LEADERSHIP -->
-
 <section id="leadership" class="reveal">
-  <h2 class="sec-title">Leadership</h2>
+ <h2 class="sec-title">LEADERSHIP</h2>
 
-  <div class="two-col">
-
-    <div class="card">
-      <h3>CEO OF ELITES</h3>
-      <h2 style="margin:8px 0">J</h2>
-      <p>Discord: niv_jadyen</p>
-    </div>
-
-    <div class="card">
-      <h3>OUR COMMUNITY</h3>
-      <p>
-        Our goal is to build a strong Roblox
-        community where everyone can play,
-        compete, and make friends.
-      </p>
-    </div>
-
+ <div class="two-col">
+  <div class="card">
+   <h3>CEO OF ELITES</h3>
+   <h2 style="font-family:Orbitron;margin:10px 0">J</h2>
+   <p>Discord: niv_jadyen</p>
   </div>
+
+  <div class="card">
+   <h3>OUR COMMUNITY</h3>
+   <p>Our goal is to build a strong Roblox community where everyone can play, compete, and make friends.</p>
+  </div>
+ </div>
 </section>
 
 <!-- REQUIREMENTS -->
-
 <section id="join" class="reveal">
-  <h2 class="sec-title">Requirements</h2>
+ <h2 class="sec-title">REQUIREMENTS</h2>
 
-  <div class="two-col">
-
-    <div class="card">
-      <h3>Before joining</h3>
-
-      <ul class="req-list">
-        <li>You must be 13 or older to join.</li>
-        <li>Respect everyone and follow the rules.</li>
-        <li>Keep the community friendly.</li>
-        <li>Be active and participate.</li>
-        <li>Respect staff and other members.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>How to join</h3>
-
-      <p>
-        Join our Discord server and open
-        a ticket in clan tryouts to get started.
-      </p>
-
-      <br>
-
-      <a href="https://discord.gg/5J5QCGcay"
-         target="_blank" rel="noopener"
-         class="btn primary">
-        Join Elites Discord ↗
-      </a>
-    </div>
-
+ <div class="two-col">
+  <div class="card">
+   <h3>BEFORE JOINING</h3>
+   <ul class="req-list">
+    <li>You must be 13 or older to join.</li>
+    <li>Respect everyone and follow the rules.</li>
+    <li>Keep the community friendly.</li>
+    <li>Be active and participate.</li>
+    <li>Respect staff and other members.</li>
+   </ul>
   </div>
+
+  <div class="card">
+   <h3>HOW TO JOIN</h3>
+   <p>Join our Discord server and open a ticket in clan tryouts to get started.</p>
+   <br>
+   <a href="https://discord.gg/5J5QCGcay"
+      target="_blank" rel="noopener"
+      class="btn primary">JOIN DISCORD ↗</a>
+  </div>
+ </div>
 </section>
 
-<!-- FINAL JOIN SECTION -->
-
+<!-- FINAL JOIN -->
 <section class="reveal">
-  <div class="join-card">
-    <h2>READY TO BECOME ELITES?</h2>
+ <div class="join-card">
+  <h2>READY TO BECOME ELITES?</h2>
+  <p>Join the community, meet new people, and become part of something bigger.</p>
 
-    <p>
-      Join the community, meet new people,
-      and become part of something bigger.
-    </p>
-
-    <a href="https://discord.gg/5J5QCGcay"
-       target="_blank" rel="noopener"
-       class="btn primary">
-      JOIN THE DISCORD ↗
-    </a>
-  </div>
+  <a href="https://discord.gg/5J5QCGcay"
+     target="_blank" rel="noopener"
+     class="btn primary">JOIN THE DISCORD ↗</a>
+ </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-  <span>© 2026 ELITES CLAN. All rights reserved.</span>
-
-  <a class="footer-link"
-     href="https://discord.gg/5J5QCGcay"
-     target="_blank" rel="noopener">
-    Join our Discord ↗
-  </a>
+ <span>© 2026 ELITES CLAN. All rights reserved.</span>
+ <a href="https://discord.gg/5J5QCGcay"
+    target="_blank" rel="noopener">JOIN OUR DISCORD ↗</a>
 </footer>
 
-<!-- JAVASCRIPT -->
-
 <script>
-/* 2-second loading screen */
-
-window.addEventListener("load", function() {
-  setTimeout(function() {
-    const loader = document.getElementById("loader");
-    loader.classList.add("done");
-
-    setTimeout(function() {
-      loader.style.display = "none";
-    }, 450);
-
-  }, 2000);
+/* TWO SECOND LOADING SCREEN */
+window.addEventListener("load",function() {
+ setTimeout(function() {
+  document.getElementById("loader").classList.add("done");
+ },2000);
 });
 
-/* Scroll reveal animations */
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(function(entries) {
+ entries.forEach(function(entry) {
+  if(entry.isIntersecting) {
+   entry.target.classList.add("active");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
 
-const observer = new IntersectionObserver(
-  function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {threshold:0.12}
-);
-
-document.querySelectorAll(".reveal").forEach(function(section) {
-  observer.observe(section);
+document.querySelectorAll(".reveal").forEach(function(el) {
+ observer.observe(el);
 });
 </script>
 
