@@ -1,1069 +1,3843 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ELITES | Clan Hub</title>
-<meta name="theme-color" content="#070506">
-<meta name="description" content="ELITES — a brand-new, active Roblox clan. Hang out, game, make friends, and claim an early member role.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELITES CLAN — Roblox Community | Play Together. Grow Together.</title>
+  <meta name="description" content="ELITES is a growing Roblox clan and community — weekly game nights, Robux & Nitro giveaways, clan tryouts, custom roles, and good vibes. 76+ members and counting. Join us on Discord.">
+  <meta name="theme-color" content="#050506">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="⚡ ELITES CLAN — Roblox Community">
+  <meta property="og:description" content="Weekly game nights, giveaways, clan tryouts and good vibes. 76+ members and growing — join ELITES today.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jsadw.github.io/Elites-clan/">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZlNDVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iI2ZmZDYwYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlNmE3MDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMDcwNzBhIi8+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZDYwYSIgc3Ryb2tlLW9wYWNpdHk9IjAuMzUiLz4KICA8cGF0aCBkPSJNMzcgNyAxNSAzN2gxMmwtMyAyMCAyMy0zMkgzNGwzLTE4WiIgZmlsbD0idXJsKCNnKSIvPgo8L3N2Zz4K" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ============================================================
+   ELITES CLAN — dark / electric-gold gaming theme
+   ============================================================ */
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
 :root {
- --bg:#070506;
- --card:#100b0d;
- --line:#351216;
- --text:#fff;
- --muted:#aa999c;
- --red:#e8141c;
- --soft:#ff555d;
- --gold:#ffd700;
+  --bg: #050506;
+  --bg-soft: #08080b;
+  --panel: #0c0c10;
+  --panel-2: #111116;
+  --panel-3: #16161c;
+  --gold: #ffd60a;
+  --gold-bright: #ffe45c;
+  --gold-mid: #ffc300;
+  --gold-deep: #b8860b;
+  --green: #7dffb2;
+  --red: #ff6b6b;
+  --text: #f4f1e8;
+  --muted: #a6a196;
+  --muted-2: #77736b;
+  --line: rgba(255, 214, 10, 0.14);
+  --line-soft: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 214, 10, 0.32);
+  --gold-soft: rgba(255, 214, 10, 0.08);
+  --radius: 18px;
+  --radius-lg: 24px;
+  --max: 1180px;
+  --font-display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --glow: 0 0 0 1px rgba(255, 214, 10, 0.28), 0 18px 60px -24px rgba(255, 200, 0, 0.55);
 }
 
-* {
- box-sizing:border-box;
- margin:0;
- padding:0;
-}
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
 html {
- scroll-behavior:smooth;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
- background:
- radial-gradient(ellipse at 50% 0%,#5b101a55,transparent 55%),
- #070506;
- color:var(--text);
- font-family:'Plus Jakarta Sans',sans-serif;
- line-height:1.7;
- overflow-x:hidden;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-h1,h2,h3,.brand {
- font-family:'Orbitron',sans-serif;
-}
+body.menu-open { overflow: hidden; }
 
-::selection {
- background:var(--red);
- color:#fff;
-}
+main,
+.site-header,
+.site-footer { position: relative; z-index: 1; }
+
+img, svg { display: block; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+code { font-family: var(--font-mono); }
+
+::selection { background: var(--gold); color: #0a0800; }
 
 :focus-visible {
- outline:2px solid var(--gold);
- outline-offset:3px;
- border-radius:4px;
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-/* SCROLL PROGRESS */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: #08080a; }
+::-webkit-scrollbar-thumb {
+  background: #2b2a22;
+  border: 2px solid #08080a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #6b5a12; }
 
-.scroll-progress {
- position:fixed;
- top:0;
- left:0;
- z-index:200;
- width:0;
- height:3px;
- background:linear-gradient(90deg,#8c0008,var(--red),var(--gold));
- box-shadow:0 0 12px #e8141c;
- pointer-events:none;
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
-/* GLOWING MOUSE */
-
-.mouse-glow,
-.mouse-ring {
- position:fixed;
- top:0;
- left:0;
- z-index:3;
- pointer-events:none;
- opacity:0;
- transition:opacity .45s ease;
- will-change:transform;
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
 }
 
-.mouse-glow {
- width:460px;
- height:460px;
- margin:-230px 0 0 -230px;
- border-radius:50%;
- background:radial-gradient(circle, rgba(232,20,28,.20) 0%, rgba(232,20,28,.09) 35%, rgba(232,20,28,0) 68%);
- mix-blend-mode:screen;
+.container {
+  width: min(100% - 48px, var(--max));
+  margin-inline: auto;
 }
 
-.mouse-ring {
- z-index:4;
- width:22px;
- height:22px;
- margin:-11px 0 0 -11px;
- border-radius:50%;
- border:1px solid rgba(255,85,93,.75);
- box-shadow:0 0 18px rgba(232,20,28,.55), inset 0 0 10px rgba(232,20,28,.25);
- transition:opacity .45s ease, width .3s ease, height .3s ease, margin .3s ease, background .3s ease, border-color .3s ease;
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #0a0800;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ---------- background atmosphere ---------- */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 214, 10, 0.07), transparent 70%),
+    linear-gradient(180deg, #060607 0%, #050506 45%, #060607 100%);
 }
 
-.mouse-glow.on,
-.mouse-ring.on {
- opacity:1;
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 65% at 50% 0%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 0%, #000 0%, transparent 78%);
 }
 
-.mouse-ring.hot {
- width:44px;
- height:44px;
- margin:-22px 0 0 -22px;
- background:rgba(232,20,28,.10);
- border-color:rgba(255,215,0,.85);
- box-shadow:0 0 26px rgba(255,215,0,.35), inset 0 0 12px rgba(232,20,28,.3);
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+.bg-glow--one {
+  width: 560px;
+  height: 560px;
+  top: -180px;
+  left: -120px;
+  background: rgba(255, 190, 0, 0.14);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+.bg-glow--two {
+  width: 640px;
+  height: 640px;
+  top: 30%;
+  right: -260px;
+  background: rgba(255, 150, 0, 0.09);
+  animation: drift 28s ease-in-out infinite alternate-reverse;
 }
 
-/* LOADING SCREEN */
-
-#loader {
- position:fixed;
- inset:0;
- z-index:9999;
- background:#070506;
- display:grid;
- place-items:center;
- text-align:center;
- transition:opacity .5s ease,visibility .5s ease;
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(60px, 50px, 0) scale(1.15); }
 }
 
-#loader.done {
- opacity:0;
- visibility:hidden;
- pointer-events:none;
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.loader-logo {
- width:75px;
- height:75px;
- margin:auto auto 20px;
- border-radius:17px;
- display:grid;
- place-items:center;
- font-family:'Orbitron',sans-serif;
- font-size:40px;
- font-weight:900;
- background:linear-gradient(135deg,#ff202a,#8c0008);
- box-shadow:0 0 35px #e8141c99;
- animation:logoPulse 1.2s infinite;
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 214, 10, 0.07), transparent 65%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+body.has-pointer .cursor-glow { opacity: 1; }
+
+/* ---------- shared bits ---------- */
+.grad {
+  background: linear-gradient(100deg, #fff3b0 0%, var(--gold) 32%, #ffb703 72%, #ffe45c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-#loader h2 {
- font-family:'Orbitron',sans-serif;
- font-size:27px;
- letter-spacing:5px;
- background:linear-gradient(90deg,#fff,#ff555d,#ffd700,#fff);
- background-size:200%;
- color:transparent;
- background-clip:text;
- animation:gradientMove 2s linear infinite;
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
-#loader p {
- color:var(--muted);
- font-size:12px;
- letter-spacing:3px;
- margin-top:8px;
- text-transform:uppercase;
+.kicker-num {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  height: 24px;
+  padding: 0 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--gold-soft);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-bright);
 }
 
-.loading-bar {
- width:230px;
- height:4px;
- margin:25px auto;
- background:#291014;
- border-radius:20px;
- overflow:hidden;
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 0 rgba(125, 255, 178, 0.6);
+  animation: pulse-ring 2.2s infinite;
+}
+.live-dot--sm { width: 6px; height: 6px; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(125, 255, 178, 0.55); }
+  70% { box-shadow: 0 0 0 7px rgba(125, 255, 178, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(125, 255, 178, 0); }
 }
 
-.loading-bar span {
- display:block;
- height:100%;
- width:0;
- background:linear-gradient(90deg,#e8141c,#ffd700);
- box-shadow:0 0 15px #e8141c;
- animation:loading 2s linear forwards;
+.text-green { color: var(--green) !important; }
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.82rem;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.text-link:hover { gap: 8px; color: var(--gold-bright); }
+
+/* ---------- buttons ---------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.3s var(--ease),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
-@keyframes loading {
- to {width:100%}
+.btn .icon { width: 1.05em; height: 1.05em; }
+.btn--sm { padding: 9px 15px; font-size: 0.74rem; border-radius: 10px; gap: 7px; }
+.btn--lg { padding: 15px 22px; font-size: 0.86rem; border-radius: 14px; }
+
+.btn--primary {
+  background: linear-gradient(135deg, #ffe867 0%, var(--gold) 38%, #ffc300 72%, #e6a700 100%);
+  color: #0a0800;
+  border-color: rgba(255, 240, 150, 0.8);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 10px 30px -12px rgba(255, 200, 0, 0.65);
+}
+.btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.65) 48%, transparent 72%);
+  transform: translateX(-130%);
+  transition: transform 0.7s var(--ease);
+}
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 16px 44px -14px rgba(255, 200, 0, 0.85),
+    0 0 34px -6px rgba(255, 214, 10, 0.45);
+}
+.btn--primary:hover::before { transform: translateX(130%); }
+.btn--primary:active { transform: translateY(0); }
+
+.btn--outline {
+  background: rgba(255, 214, 10, 0.05);
+  border-color: var(--line-strong);
+  color: var(--gold);
+}
+.btn--outline:hover {
+  background: rgba(255, 214, 10, 0.12);
+  border-color: rgba(255, 214, 10, 0.6);
+  color: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px -14px rgba(255, 200, 0, 0.6);
 }
 
-@keyframes logoPulse {
- 50% {transform:scale(1.08);box-shadow:0 0 65px #e8141ccc}
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.13);
+  color: var(--text);
+}
+.btn--ghost:hover {
+  border-color: rgba(255, 214, 10, 0.45);
+  color: var(--gold-bright);
+  background: rgba(255, 214, 10, 0.05);
+  transform: translateY(-2px);
 }
 
-@keyframes gradientMove {
- to {background-position:200% center}
+.btn-arrow { transition: transform 0.25s var(--ease); }
+.btn:hover .btn-arrow { transform: translate(2px, -2px); }
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  background: rgba(5, 5, 6, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.site-header.is-scrolled {
+  background: rgba(5, 5, 6, 0.88);
+  border-bottom-color: rgba(255, 214, 10, 0.12);
+  box-shadow: 0 18px 40px -30px rgba(0, 0, 0, 0.9);
 }
 
-/* NAVIGATION */
-
-nav {
- position:sticky;
- top:0;
- z-index:100;
- padding:15px 6%;
- display:flex;
- align-items:center;
- justify-content:space-between;
- background:#080607ef;
- backdrop-filter:blur(15px);
- -webkit-backdrop-filter:blur(15px);
- border-bottom:1px solid var(--line);
- transition:padding .3s ease, box-shadow .3s ease, background .3s ease;
-}
-
-nav.scrolled {
- padding-top:10px;
- padding-bottom:10px;
- background:#070506f5;
- box-shadow:0 12px 40px #00000099;
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 76px;
 }
 
 .brand {
- display:flex;
- align-items:center;
- gap:12px;
- color:white;
- font-size:18px;
- font-weight:900;
- letter-spacing:3px;
- text-decoration:none;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex: none;
 }
 
-.brand-icon {
- width:35px;
- height:35px;
- display:grid;
- place-items:center;
- background:var(--red);
- border-radius:8px;
- box-shadow:0 0 20px #e8141c66;
+.brand-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 214, 10, 0.45);
+  border-radius: 11px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 230, 120, 0.24), transparent 60%),
+    #0d0d10;
+  color: var(--gold);
+  box-shadow: 0 0 22px -8px rgba(255, 214, 10, 0.55), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  transition: box-shadow 0.3s ease, transform 0.3s var(--ease);
+}
+.brand-mark .icon { width: 21px; height: 21px; filter: drop-shadow(0 0 6px rgba(255, 214, 10, 0.6)); }
+.brand:hover .brand-mark {
+  transform: rotate(-6deg);
+  box-shadow: 0 0 32px -6px rgba(255, 214, 10, 0.8);
 }
 
-.nav-links {
- display:flex;
- gap:25px;
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand-text strong {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+.brand-text small {
+  margin-top: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.53rem;
+  letter-spacing: 0.24em;
+  color: var(--muted-2);
 }
 
-.nav-links a {
- color:var(--muted);
- text-decoration:none;
- font-size:13px;
- font-weight:700;
- transition:.3s;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-inline: auto;
+}
+.nav a {
+  position: relative;
+  padding: 9px 13px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 3px;
+  height: 1.5px;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+.nav a:hover,
+.nav a.is-active { color: var(--gold-bright); }
+.nav a:hover::after,
+.nav a.is-active::after { transform: scaleX(1); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
 }
 
-.nav-links a:hover {
- color:white;
- text-shadow:0 0 15px var(--red);
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
 }
+.menu-toggle .icon { width: 19px; height: 19px; }
+.menu-toggle .close-icon { display: none; }
+.menu-toggle[aria-expanded="true"] .menu-icon { display: none; }
+.menu-toggle[aria-expanded="true"] .close-icon { display: block; }
 
-/* HERO */
-
+/* ---------- hero ---------- */
 .hero {
- position:relative;
- min-height:540px;
- padding:100px 7%;
- display:flex;
- flex-direction:column;
- justify-content:center;
- background:
- linear-gradient(#25101444 1px,transparent 1px),
- linear-gradient(90deg,#25101444 1px,transparent 1px),
- radial-gradient(ellipse at 75% 50%,#8e0d1955,transparent 55%);
- background-size:45px 45px;
- overflow:hidden;
+  position: relative;
+  padding: clamp(56px, 7vw, 92px) 0 clamp(56px, 7vw, 86px);
+  overflow: hidden;
+}
+.hero-spotlight {
+  position: absolute;
+  top: -260px;
+  left: 50%;
+  width: 980px;
+  height: 680px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 214, 10, 0.1), transparent 62%);
+  pointer-events: none;
 }
 
-.hero > * {
- position:relative;
- z-index:2;
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: center;
+  gap: clamp(36px, 5vw, 64px);
 }
 
-.tag {
- color:var(--soft);
- font-size:12px;
- font-weight:800;
- letter-spacing:4px;
- animation:fadeUp .8s both;
+.hero-brand {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 214, 10, 0.035);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(255, 214, 10, 0.45);
 }
 
-.hero h1 {
- font-family:'Orbitron',sans-serif;
- font-size:clamp(55px,10vw,105px);
- line-height:1.1;
- font-weight:900;
- font-style:italic;
- margin:20px 0;
- letter-spacing:4px;
- background:linear-gradient(90deg,#fff,#ff444d,#ffd700,#fff);
- background-size:250%;
- color:transparent;
- background-clip:text;
- animation:gradientMove 5s linear infinite,fadeUp 1s both;
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-bottom: 18px;
 }
 
-.hero p {
- max-width:570px;
- color:var(--muted);
- font-size:15px;
- animation:fadeUp 1.2s both;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px;
+  border: 1px solid rgba(125, 255, 178, 0.25);
+  border-radius: 999px;
+  background: rgba(125, 255, 178, 0.06);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
 }
 
-.hero-buttons {
- display:flex;
- flex-wrap:wrap;
- gap:15px;
- margin-top:30px;
- animation:fadeUp 1.4s both;
+.hero-tags {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.hero-tags b { color: var(--gold-deep); margin-inline: 2px; }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.8vw, 4.6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin-bottom: 24px;
+}
+.hero-line {
+  display: block;
+  white-space: nowrap;
+}
+.hero-title .grad {
+  filter: drop-shadow(0 0 26px rgba(255, 214, 10, 0.18));
 }
 
-/* BUTTONS */
+.hero-lead {
+  max-width: 58ch;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.2vw, 1.06rem);
+  line-height: 1.75;
+}
+.hero-lead strong { color: var(--text); font-weight: 600; }
 
-.btn {
- display:inline-flex;
- justify-content:center;
- align-items:center;
- padding:13px 24px;
- border-radius:8px;
- border:1px solid var(--red);
- font-weight:800;
- font-size:13px;
- text-decoration:none;
- transition:.3s;
- cursor:pointer;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
-.primary {
- color:white;
- background:var(--red);
- box-shadow:0 0 20px #e8141c44;
+.hero-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-bottom: 34px;
+  font-size: 0.78rem;
+  color: var(--muted-2);
+}
+.hero-note .icon { width: 13px; height: 13px; color: var(--green); }
+.hero-note > span { opacity: 0.4; }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 560px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 22px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line-soft);
+}
+.stat:first-child { padding-left: 0; border-left: 0; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold-bright);
+  text-shadow: 0 0 24px rgba(255, 214, 10, 0.28);
+  font-variant-numeric: tabular-nums;
+}
+.stat-num--text { font-size: clamp(1rem, 1.6vw, 1.2rem); letter-spacing: 0.02em; }
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
 }
 
-.primary:hover {
- background:var(--soft);
- transform:translateY(-4px);
- box-shadow:0 0 30px #e8141c88;
+/* ---------- live status card ---------- */
+.status-card {
+  position: relative;
+  padding: 24px;
+  border: 1px solid rgba(255, 214, 10, 0.18);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(160deg, rgba(24, 24, 29, 0.92), rgba(8, 8, 10, 0.96)),
+    var(--panel);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 40px 90px -50px rgba(0, 0, 0, 0.95),
+    0 0 60px -30px rgba(255, 200, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.status-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.7;
+}
+.status-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(180deg, #000, transparent 65%);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 65%);
+  pointer-events: none;
+  opacity: 0.5;
 }
 
-.outline {
- color:white;
- background:#100b0d;
+.float-badge {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  z-index: 2;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 214, 10, 0.6);
+  border-radius: 999px;
+  background: #0d0c07;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  box-shadow: 0 0 22px -4px rgba(255, 214, 10, 0.55);
+  animation: badge-breathe 3.4s ease-in-out infinite;
+}
+@keyframes badge-breathe {
+  0%, 100% { box-shadow: 0 0 18px -6px rgba(255, 214, 10, 0.4); }
+  50% { box-shadow: 0 0 30px -2px rgba(255, 214, 10, 0.75); }
 }
 
-.outline:hover {
- background:#e8141c22;
- transform:translateY(-4px);
+.status-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.09);
+}
+.status-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.status-code {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--muted-2);
 }
 
-/* STATS */
-
-.live-stats {
- display:flex;
- flex-wrap:wrap;
- gap:10px 28px;
- margin-top:30px;
- color:var(--muted);
- font-size:13px;
- animation:fadeUp 1.6s both;
+.status-emblem {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 4px;
 }
 
-/* hero entrance waits for the loader to finish */
-body:not(.ready) .tag,
-body:not(.ready) .hero h1,
-body:not(.ready) .hero p,
-body:not(.ready) .hero-buttons,
-body:not(.ready) .live-stats {
- animation-play-state:paused;
+.emblem-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 104px;
+  flex: none;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 62%, rgba(255, 214, 10, 0.9) 74%, rgba(255, 214, 10, 0.1) 88%, transparent 100%);
+  animation: spin-slow 9s linear infinite;
+}
+.emblem-ring::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #08080a;
+  border: 1px solid rgba(255, 214, 10, 0.16);
+}
+.emblem-ring::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px dashed rgba(255, 214, 10, 0.16);
+  border-radius: 50%;
+}
+.emblem-core {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 230, 120, 0.22), transparent 62%), #0b0b0e;
+  color: var(--gold);
+  box-shadow: 0 0 34px -8px rgba(255, 214, 10, 0.65), 0 0 0 1px rgba(255, 214, 10, 0.25) inset;
+}
+.emblem-core .icon {
+  width: 31px;
+  height: 31px;
+  filter: drop-shadow(0 0 9px rgba(255, 214, 10, 0.7));
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+.emblem-copy { display: flex; flex-direction: column; gap: 4px; }
+.emblem-copy strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.16em;
+}
+.emblem-copy span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--muted-2);
 }
 
-.live-stats b {
- color:white;
- font-family:'Orbitron',sans-serif;
- font-size:19px;
- font-variant-numeric:tabular-nums;
+.roster {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.roster-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.roster-top strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+}
+.roster-status {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  color: var(--green);
+}
+.meter {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+.meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ffb703, var(--gold-bright));
+  box-shadow: 0 0 12px rgba(255, 214, 10, 0.7);
+  animation: meter-grow 1.6s var(--ease) both;
+}
+@keyframes meter-grow { from { width: 0 !important; } }
+.roster-note {
+  margin-top: 9px;
+  font-size: 0.72rem;
+  color: var(--muted-2);
 }
 
-.dot {
- display:inline-block;
- width:8px;
- height:8px;
- margin-right:4px;
- background:#3ba55d;
- border-radius:50%;
- box-shadow:0 0 10px #3ba55d;
- animation:pulseDot 2s infinite;
+.server-facts {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.server-facts span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 8px 4px 9px;
+  background: #09090c;
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+.server-facts strong {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--gold-bright);
 }
 
-.dot.gold {
- background:var(--gold);
- box-shadow:0 0 10px var(--gold);
+.server-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 9px;
+}
+.server-tags span {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 214, 10, 0.14);
+  border-radius: 5px;
+  background: rgba(255, 214, 10, 0.04);
+  font-family: var(--font-mono);
+  font-size: 0.51rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-@keyframes pulseDot {
- 50% {transform:scale(1.35); opacity:.7}
+.status-list {
+  position: relative;
+  z-index: 1;
+  margin-top: 16px;
+  display: grid;
+  gap: 2px;
+}
+.status-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 2px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.status-list li:last-child { border-bottom: 0; }
+.status-list b {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.status-icon {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(255, 214, 10, 0.16);
+  border-radius: 7px;
+  background: rgba(255, 214, 10, 0.04);
+  color: var(--gold);
+}
+.status-icon .icon { width: 13px; height: 13px; }
+
+.activity {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  padding: 13px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.activity-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.activity-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--green);
+  font-size: 0.54rem;
+}
+.activity-feed { display: grid; gap: 7px; }
+.activity-feed li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.activity-feed li.is-new { animation: feed-in 0.5s var(--ease); }
+@keyframes feed-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: none; }
+}
+.activity-feed .feed-dot {
+  width: 4px;
+  height: 4px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--gold-deep);
+}
+.activity-feed span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity-feed time {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: var(--muted-2);
 }
 
-/* TICKER */
+.status-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.09);
+  font-size: 0.68rem;
+  color: var(--muted-2);
+}
+.status-foot > span { display: inline-flex; align-items: center; gap: 6px; }
+.status-foot .icon { width: 12px; height: 12px; color: var(--gold-deep); }
 
-.ticker {
- position:relative;
- z-index:2;
- padding:12px 0;
- overflow:hidden;
- border-block:1px solid var(--line);
- background:linear-gradient(90deg,#e8141c14,#ffd70008 50%,#e8141c14);
- -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
- mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+/* ---------- marquee ---------- */
+.marquee {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 214, 10, 0.5);
+  background: linear-gradient(90deg, #ffc300, var(--gold) 25%, #ffe45c 50%, var(--gold) 75%, #ffc300);
+  color: #0a0800;
+}
+.marquee::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(115deg, transparent 0 18px, rgba(0, 0, 0, 0.045) 18px 36px);
+  pointer-events: none;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+.marquee-group span {
+  padding: 13px 22px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee-group .icon {
+  width: 13px;
+  height: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+@keyframes marquee-scroll { to { transform: translateX(-50%); } }
+
+/* ---------- reveal ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s var(--ease);
+}
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
+.section {
+  position: relative;
+  padding: clamp(72px, 8.5vw, 112px) 0;
+  scroll-margin-top: 88px;
 }
 
-.ticker-track {
- display:flex;
- width:max-content;
- animation:tickerScroll 30s linear infinite;
- will-change:transform;
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+  gap: 24px 56px;
+  margin-bottom: clamp(30px, 4vw, 46px);
+}
+.section-head-main { min-width: 0; }
+.section-head .kicker { margin-bottom: 16px; }
+.section-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.section-desc {
+  max-width: 48ch;
+  padding-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+.section-desc strong { color: var(--text); font-weight: 600; }
+
+/* ============================================================
+   GAMES HUB
+   ============================================================ */
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
-.ticker-group {
- display:flex;
- align-items:center;
- gap:28px;
- padding-right:28px;
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+.chip:hover {
+  border-color: rgba(255, 214, 10, 0.4);
+  color: var(--gold-bright);
+  background: rgba(255, 214, 10, 0.05);
+}
+.chip.is-active {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #0a0800;
+  box-shadow: 0 0 22px -8px rgba(255, 214, 10, 0.7);
+}
+.chip-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.14);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+}
+.chip:not(.is-active) .chip-count { background: rgba(255, 255, 255, 0.07); }
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.ticker-group span {
- font-family:'Orbitron',sans-serif;
- font-size:12px;
- font-weight:800;
- letter-spacing:6px;
- color:var(--soft);
+.game-card {
+  position: relative;
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.032), rgba(255, 255, 255, 0.008)),
+    var(--panel);
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.3s ease,
+    box-shadow 0.35s var(--ease),
+    background-color 0.3s ease;
+}
+.game-card:nth-child(4),
+.game-card:nth-child(5) { grid-column: span 3; min-height: 268px; }
+
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent, var(--gold)), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.game-card::after {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent, var(--gold)), transparent 68%);
+  opacity: 0.07;
+  filter: blur(14px);
+  transition: opacity 0.35s ease, transform 0.5s var(--ease);
+  pointer-events: none;
+}
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent, var(--gold)) 42%, transparent);
+  box-shadow:
+    0 30px 60px -34px rgba(0, 0, 0, 0.95),
+    0 0 42px -18px color-mix(in srgb, var(--accent, var(--gold)) 65%, transparent);
+}
+.game-card:hover::before { opacity: 1; }
+.game-card:hover::after { opacity: 0.15; transform: scale(1.15); }
+
+.game-card.is-hidden { display: none; }
+
+.games-grid.is-filtered { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.games-grid.is-filtered .game-card { grid-column: auto; }
+
+.game-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.game-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid color-mix(in srgb, var(--accent, var(--gold)) 32%, transparent);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent, var(--gold)) 22%, transparent), transparent 70%),
+    rgba(255, 255, 255, 0.02);
+  font-size: 1.4rem;
+  line-height: 1;
+  box-shadow: 0 0 24px -12px var(--accent, var(--gold));
+  transition: transform 0.35s var(--ease);
+}
+.game-card:hover .game-icon { transform: scale(1.08) rotate(-4deg); }
+.game-index {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
 }
 
-.ticker-group i {
- font-style:normal;
- font-size:8px;
- color:rgba(255,215,0,.55);
+.game-body { display: flex; flex-direction: column; flex: 1; }
+.game-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+.game-title-row h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+.game-tag {
+  padding: 2px 7px;
+  border: 1px solid color-mix(in srgb, var(--accent, var(--gold)) 30%, transparent);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--accent, var(--gold)) 8%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.53rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent, var(--gold)) 82%, white);
+}
+.game-body p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.68;
 }
 
-@keyframes tickerScroll {
- to {transform:translateX(-50%)}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 16px;
+}
+.tags span {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.025);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.05em;
+  color: var(--muted-2);
 }
 
-/* SECTIONS */
+.game-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  margin-top: 20px;
+  padding-top: 14px;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--font-display);
+  font-size: 0.71rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent, var(--gold)) 75%, white);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+.game-link .icon { width: 13px; height: 13px; transition: transform 0.25s var(--ease); }
+.game-link:hover { gap: 9px; color: var(--gold-bright); }
+.game-link:hover .icon { transform: translate(2px, -2px); }
 
-section {
- max-width:1200px;
- padding:75px 6%;
- margin:auto;
- scroll-margin-top:80px;
+.games-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.games-foot p {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted-2);
+  font-size: 0.8rem;
+}
+.games-foot .icon { width: 15px; height: 15px; color: var(--gold-deep); }
+
+/* ============================================================
+   PERKS
+   ============================================================ */
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.sec-title {
- font-size:25px;
- margin-bottom:12px;
- letter-spacing:2px;
+.perk-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 258px;
+  padding: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008)),
+    var(--panel);
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.3s ease,
+    box-shadow 0.35s var(--ease);
+}
+.perk-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 214, 10, 0.55), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.perk-card::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 214, 10, 0.18), transparent 68%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.perk-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 214, 10, 0.36);
+  box-shadow: 0 28px 60px -36px rgba(0, 0, 0, 0.95), 0 0 40px -20px rgba(255, 214, 10, 0.5);
+}
+.perk-card:hover::before,
+.perk-card:hover::after { opacity: 1; }
+
+.perk-card--gold {
+  border-color: rgba(255, 214, 10, 0.22);
+  background:
+    linear-gradient(160deg, rgba(255, 214, 10, 0.09), rgba(255, 214, 10, 0.015) 55%),
+    var(--panel);
 }
 
-.sec-title::after {
- content:"";
- display:block;
- width:65px;
- height:3px;
- margin-top:12px;
- background:linear-gradient(90deg,var(--red),transparent);
+.perk-index {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+}
+.perk-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 214, 10, 0.22);
+  border-radius: 12px;
+  background: rgba(255, 214, 10, 0.06);
+  color: var(--gold);
+  transition: transform 0.35s var(--ease), box-shadow 0.3s ease;
+}
+.perk-icon .icon { width: 21px; height: 21px; }
+.perk-card:hover .perk-icon {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 0 26px -8px rgba(255, 214, 10, 0.65);
+}
+.perk-card--gold .perk-icon {
+  border-color: rgba(255, 228, 92, 0.6);
+  background: linear-gradient(140deg, var(--gold-bright), var(--gold-mid));
+  color: #0a0800;
+  box-shadow: 0 8px 24px -12px rgba(255, 200, 0, 0.8);
+}
+.perk-card h3 {
+  margin-bottom: 8px;
+  padding-right: 22px;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: 0.005em;
+}
+.perk-card p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+.perk-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+.perk-tags li {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+}
+.perk-card--gold .perk-tags li {
+  border-color: rgba(255, 214, 10, 0.16);
+  color: #b9ac7c;
 }
 
-.sec-sub {
- color:var(--muted);
- margin-bottom:28px;
- font-size:14px;
+.perk-extras {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.extras-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-right: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.extras-label .icon { width: 13px; height: 13px; }
+.extra-chip {
+  padding: 5px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 0.7rem;
+  color: var(--muted);
+  transition: all 0.22s ease;
+}
+.extra-chip:hover {
+  border-color: rgba(255, 214, 10, 0.3);
+  color: var(--text);
+  background: rgba(255, 214, 10, 0.04);
 }
 
-/* CARDS */
+/* ============================================================
+   GET INVOLVED
+   ============================================================ */
 
-.grid {
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
- gap:18px;
+.section--involved {
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 255, 255, 0.045);
+  background:
+    radial-gradient(ellipse 60% 55% at 85% 20%, rgba(255, 214, 10, 0.055), transparent 70%),
+    radial-gradient(ellipse 50% 50% at 0% 100%, rgba(255, 150, 0, 0.04), transparent 70%);
 }
 
-.card {
- position:relative;
- overflow:hidden;
- background:linear-gradient(145deg,#160d10,#0c0809);
- border:1px solid var(--line);
- border-radius:13px;
- padding:25px;
- transition:transform .35s,border-color .35s,box-shadow .35s;
+.involve-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 20px;
+  align-items: stretch;
 }
 
-.card > * {
- position:relative;
- z-index:1;
+.open-roles {
+  display: grid;
+  gap: 18px;
 }
 
-.card::before {
- content:"";
- position:absolute;
- top:0;
- left:-100%;
- width:100%;
- height:2px;
- background:linear-gradient(90deg,transparent,var(--red),transparent);
- transition:.6s;
- z-index:1;
+.role-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.008)),
+    var(--panel);
+  transition: transform 0.35s var(--ease), border-color 0.3s ease, box-shadow 0.35s var(--ease);
+}
+.role-card::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(125, 255, 178, 0.12), transparent 68%);
+  pointer-events: none;
+}
+.role-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 214, 10, 0.34);
+  box-shadow: 0 26px 60px -36px rgba(0, 0, 0, 0.95), 0 0 38px -22px rgba(255, 214, 10, 0.45);
+}
+.role-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.role-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 214, 10, 0.24);
+  border-radius: 12px;
+  background: rgba(255, 214, 10, 0.06);
+  color: var(--gold);
+}
+.role-icon .icon { width: 21px; height: 21px; }
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  border: 1px solid rgba(125, 255, 178, 0.4);
+  border-radius: 999px;
+  background: rgba(125, 255, 178, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--green);
+  box-shadow: 0 0 20px -8px rgba(125, 255, 178, 0.5);
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-ring 2.2s infinite;
 }
 
-.card::after {
- content:"";
- position:absolute;
- inset:0;
- z-index:0;
- background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(232,20,28,.16),transparent 65%);
- opacity:0;
- transition:opacity .35s ease;
- pointer-events:none;
+.role-card h3 {
+  margin-bottom: 7px;
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.role-card > p {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+.role-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 15px 0 20px;
+}
+.role-tags span {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: var(--muted-2);
+}
+.role-card .btn { align-self: flex-start; margin-top: auto; }
+
+.rules-card {
+  position: relative;
+  padding: clamp(24px, 3vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 214, 10, 0.16);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 214, 10, 0.07), transparent 65%),
+    linear-gradient(160deg, rgba(20, 20, 25, 0.9), rgba(8, 8, 10, 0.96));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 40px 90px -55px rgba(0, 0, 0, 0.95);
+}
+.rules-head .kicker { margin-bottom: 10px; }
+.rules-head h3 {
+  margin-bottom: 7px;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.rules-head > p:last-child {
+  max-width: 44ch;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+.rules-list { margin-top: 18px; }
+.rules-list li {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  padding: 15px 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.rule-num {
+  padding-top: 1px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-deep);
+}
+.rules-list h4 {
+  margin-bottom: 2px;
+  font-family: var(--font-display);
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.rules-list p {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+.rules-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 214, 10, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 214, 10, 0.035);
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.rules-note .icon { width: 14px; height: 14px; margin-top: 2px; color: var(--gold); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.step {
+  position: relative;
+  padding: 22px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.016);
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.step:hover { border-color: rgba(255, 214, 10, 0.28); background: rgba(255, 214, 10, 0.025); }
+.step-num {
+  position: absolute;
+  top: 4px;
+  right: 14px;
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.045);
+  pointer-events: none;
+}
+.step h3 {
+  margin-bottom: 5px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.step p {
+  position: relative;
+  z-index: 1;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+.step code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(255, 214, 10, 0.08);
+  color: var(--gold);
+  font-size: 0.74rem;
 }
 
-.card:hover::before {
- left:100%;
+/* ============================================================
+   PROMO GENERATOR
+   ============================================================ */
+
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.032), rgba(255, 255, 255, 0.006)),
+    var(--panel);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 34px 80px -55px rgba(0, 0, 0, 0.95);
 }
 
-.card:hover::after {
- opacity:1;
+.promo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 20px;
+  align-items: start;
 }
 
-.card:hover {
- transform:translateY(-7px);
- border-color:var(--red);
- box-shadow:0 12px 35px #e8141c19;
+.promo-controls { padding: 26px; }
+
+.control-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.control-kicker {
+  margin-bottom: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.control-head h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.official-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: none;
+  padding: 4px 9px;
+  border: 1px solid rgba(255, 214, 10, 0.28);
+  border-radius: 6px;
+  background: rgba(255, 214, 10, 0.05);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.official-tag .icon { width: 11px; height: 11px; }
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+}
+.tab {
+  padding: 9px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.04); }
+.tab.is-active {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-mid));
+  color: #0a0800;
+  box-shadow: 0 6px 18px -8px rgba(255, 200, 0, 0.75);
 }
 
-.card h3 {
- font-size:14px;
- color:var(--soft);
- margin-bottom:12px;
- letter-spacing:1px;
+.control-note {
+  margin: 14px 0 4px;
+  color: var(--muted-2);
+  font-size: 0.75rem;
+  line-height: 1.6;
 }
 
-.card p {
- color:var(--muted);
- font-size:13px;
+.switch-list { display: grid; }
+.switch-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+}
+.switch-row:last-of-type { border-bottom: 0; }
+.switch-label { display: flex; flex-direction: column; gap: 1px; }
+.switch-label strong {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.switch-label small {
+  font-size: 0.68rem;
+  color: var(--muted-2);
+}
+.switch-row input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.switch {
+  position: relative;
+  flex: none;
+  width: 42px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8d8a80;
+  transition: transform 0.25s var(--ease), background-color 0.25s ease;
+}
+.switch-row input:checked + .switch {
+  border-color: rgba(255, 214, 10, 0.65);
+  background: rgba(255, 214, 10, 0.18);
+  box-shadow: 0 0 16px -6px rgba(255, 214, 10, 0.6);
+}
+.switch-row input:checked + .switch::after {
+  transform: translateX(18px);
+  background: var(--gold-bright);
+  box-shadow: 0 0 8px rgba(255, 214, 10, 0.7);
+}
+.switch-row input:focus-visible + .switch {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
-/* GAMES */
+.mini-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 16px;
+  padding: 12px 13px;
+  border: 1px solid rgba(255, 214, 10, 0.13);
+  border-radius: 10px;
+  background: rgba(255, 214, 10, 0.03);
+}
+.mini-tip .icon { width: 14px; height: 14px; margin-top: 2px; color: var(--gold); }
+.mini-tip p { color: var(--muted); font-size: 0.73rem; line-height: 1.6; }
+.mini-tip strong { color: var(--gold-bright); }
 
-.games {
- display:flex;
- flex-wrap:wrap;
- gap:12px;
- list-style:none;
+.promo-preview {
+  overflow: hidden;
+  border-color: rgba(255, 214, 10, 0.17);
 }
 
-.games li {
- padding:12px 23px;
- border:1px solid var(--line);
- background:var(--card);
- border-radius:30px;
- font-weight:700;
- font-size:13px;
- transition:.3s;
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.35);
+}
+.term-dots { display: inline-flex; gap: 5px; }
+.term-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #33332c;
+}
+.term-dots i:nth-child(1) { background: #4a3a1a; }
+.term-dots i:nth-child(2) { background: #5c501c; }
+.term-dots i:nth-child(3) { background: #2f3a24; }
+.term-file {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.term-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  color: var(--green);
 }
 
-.games li:hover {
- background:#e8141c22;
- border-color:var(--red);
- transform:translateY(-4px);
- box-shadow:0 0 20px #e8141c22;
+.ad-output {
+  margin: 0;
+  padding: 22px;
+  max-height: 450px;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.32);
+  color: #ddd8c9;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  tab-size: 2;
+  scrollbar-gutter: stable;
+}
+.ad-output:focus-visible { outline-offset: -3px; }
+
+.ad-window {
+  position: relative;
+  background: rgba(0, 0, 0, 0.32);
+}
+.ad-window::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  background: linear-gradient(180deg, rgba(7, 7, 8, 0), rgba(7, 7, 8, 0.92));
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.ad-window.is-at-end::after { opacity: 0; }
+
+.ad-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  padding: 10px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+}
+.ad-warning { color: #ffb35c; }
+
+.ad-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 14px 18px 8px;
+}
+.ad-actions .btn { flex: 1 1 auto; }
+.ad-actions #copy-ad { flex-grow: 2; }
+.ad-actions .check-icon { display: none; }
+#copy-ad.is-copied .copy-icon { display: none; }
+#copy-ad.is-copied .check-icon { display: block; }
+
+.preview-note {
+  padding: 0 18px 16px;
+  font-size: 0.67rem;
+  color: var(--muted-2);
 }
 
-/* LEADERSHIP */
-
-.two-col {
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
- gap:20px;
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.tip-card {
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.016);
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.3s var(--ease);
+}
+.tip-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 214, 10, 0.26);
+  background: rgba(255, 214, 10, 0.02);
+}
+.tip-num {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-deep);
+}
+.tip-card h3 {
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.tip-card p {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.65;
 }
 
-.req-list {
- list-style:none;
- display:flex;
- flex-direction:column;
- gap:12px;
- margin-top:18px;
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+
+.cta-section { padding: 20px 0 clamp(70px, 9vw, 110px); }
+
+.cta-card {
+  position: relative;
+  padding: clamp(42px, 6vw, 76px) clamp(24px, 5vw, 64px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 214, 10, 0.22);
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse 60% 100% at 50% 0%, rgba(255, 214, 10, 0.13), transparent 70%),
+    linear-gradient(170deg, #13130f, #08080a 60%);
+  text-align: center;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 50px 100px -60px rgba(0, 0, 0, 0.95),
+    0 0 80px -50px rgba(255, 200, 0, 0.4);
+}
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 214, 10, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 214, 10, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000, transparent 75%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.cta-watermark {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(12deg);
+  color: var(--gold);
+  opacity: 0.045;
+  pointer-events: none;
+}
+.cta-watermark .icon { width: 320px; height: 320px; }
+
+.cta-card > * { position: relative; z-index: 1; }
+.cta-card .kicker { margin-bottom: 16px; }
+.cta-card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.8vw, 4rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.cta-sub {
+  max-width: 48ch;
+  margin: 16px auto 26px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.cta-tagline {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 214, 10, 0.14);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-shadow: 0 0 22px rgba(255, 214, 10, 0.35);
 }
 
-.req-list li {
- color:var(--muted);
- font-size:13px;
- padding-left:20px;
- position:relative;
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 40%);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr 1.05fr;
+  gap: 36px;
+  padding: 54px 0 42px;
+}
+.footer-brand p {
+  max-width: 34ch;
+  margin: 16px 0 18px;
+  color: var(--muted-2);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.footer-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.mini-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-2);
 }
 
-.req-list li::before {
- content:'▸';
- color:var(--red);
- position:absolute;
- left:0;
+.footer-col { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.footer-col h3 {
+  margin-bottom: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.footer-col a:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+.footer-col a:not(.btn):hover { color: var(--gold-bright); }
+.footer-col a:not(.btn) .icon { width: 11px; height: 11px; opacity: 0.6; }
+.footer-col > p {
+  margin-bottom: 6px;
+  color: var(--muted-2);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+.footer-cta .back-top {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.footer-cta .back-top:hover { color: var(--gold); }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 18px 0 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+}
+.footer-fineprint { opacity: 0.72; }
+
+/* ============================================================
+   TOASTS
+   ============================================================ */
+
+.toast-stack {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: min(360px, calc(100vw - 40px));
+  pointer-events: none;
+}
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 214, 10, 0.35);
+  border-radius: 12px;
+  background: rgba(13, 13, 16, 0.97);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.9), 0 0 30px -14px rgba(255, 214, 10, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  pointer-events: auto;
+  animation: toast-in 0.35s var(--ease);
+}
+.toast.is-leaving { animation: toast-out 0.3s ease forwards; }
+.toast-icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #0a0800;
+}
+.toast-icon .icon { width: 13px; height: 13px; }
+.toast strong { display: block; font-size: 0.78rem; font-weight: 600; }
+.toast span { color: var(--muted); font-size: 0.72rem; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes toast-out {
+  to { opacity: 0; transform: translateY(8px) scale(0.98); }
 }
 
-/* JOIN */
+.noscript-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 150;
+  padding: 13px 18px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: #12120d;
+  color: var(--text);
+  font-size: 0.82rem;
+  text-align: center;
+}
+.noscript-banner a { color: var(--gold); text-decoration: underline; }
 
-.join-card {
- text-align:center;
- padding:55px 25px;
- border:1px solid var(--line);
- border-radius:15px;
- background:radial-gradient(ellipse at center,#5b0b1455,transparent 75%),#100b0d;
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .hero-grid { gap: 36px; }
+  .hero-title { font-size: clamp(2.7rem, 5.8vw, 4.4rem); }
+  .status-emblem { gap: 16px; }
+  .emblem-ring { width: 92px; height: 92px; }
+  .emblem-core { width: 58px; height: 58px; }
+  .footer-grid { grid-template-columns: 1.4fr 0.8fr 1fr 1fr; gap: 26px; }
 }
 
-.join-card h2 {
- font-size:clamp(22px,4vw,34px);
- margin-bottom:15px;
- background:linear-gradient(90deg,#fff,#ff555d,#ffd700);
- color:transparent;
- background-clip:text;
+@media (min-width: 981px) and (max-width: 1200px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero-actions .btn { width: 100%; }
+  .hero-actions .btn--primary { grid-column: 1 / -1; }
 }
 
-.join-card p {
- color:var(--muted);
- margin-bottom:25px;
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy { max-width: 680px; }
+  .status-card { width: 100%; max-width: 560px; }
+  .section-head { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .section-desc { max-width: 62ch; padding-bottom: 0; }
+
+  .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .game-card,
+  .game-card:nth-child(4),
+  .game-card:nth-child(5) { grid-column: auto; min-height: 280px; }
+
+  .perks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .perk-card { min-height: 244px; }
+
+  .involve-grid { grid-template-columns: minmax(0, 1fr); }
+  .open-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .role-card { min-height: 100%; }
+
+  .promo-layout { grid-template-columns: minmax(0, 1fr); }
+  .ad-output { max-height: 400px; }
+
+  .tips-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
 }
 
-/* FOOTER */
-
-footer {
- max-width:1200px;
- margin:30px auto 0;
- padding:35px 6%;
- border-top:1px solid var(--line);
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
- gap:15px;
- color:var(--muted);
- font-size:12px;
+@media (max-width: 900px) {
+  .nav {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 10px 24px 22px;
+    border-bottom: 1px solid rgba(255, 214, 10, 0.16);
+    background: #060608;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s var(--ease), visibility 0.25s;
+  }
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  .nav a {
+    padding: 15px 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    font-size: 0.86rem;
+  }
+  .nav a:last-child { border-bottom: 0; }
+  .nav a::after { display: none; }
+  .header-website { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .header-inner { gap: 14px; }
+  .header-actions { margin-left: auto; }
 }
 
-footer a {
- color:var(--soft);
- text-decoration:none;
- font-weight:800;
+@media (max-width: 760px) {
+  .hero { padding-top: 46px; }
+  .hero-title { font-size: clamp(2.65rem, 10.5vw, 4rem); }
+  .hero-actions .btn { flex: 1 1 auto; }
+  .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 0; }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stat:nth-child(n + 3) { padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+
+  .games-grid { grid-template-columns: minmax(0, 1fr); }
+  .game-card,
+  .game-card:nth-child(4),
+  .game-card:nth-child(5) { min-height: 0; }
+
+  .perks-grid { grid-template-columns: minmax(0, 1fr); }
+  .perk-card { min-height: 0; }
+
+  .open-roles { grid-template-columns: minmax(0, 1fr); }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
 
-/* SCROLL ANIMATION */
+@media (max-width: 560px) {
+  .container { width: calc(100% - 32px); }
 
-.reveal {
- opacity:0;
- transform:translateY(30px);
- transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+  .header-inner { min-height: 68px; }
+  .brand-mark { width: 36px; height: 36px; }
+  .brand-text strong { font-size: 1.1rem; }
+  .brand-text small { font-size: 0.47rem; }
+  .header-actions .btn--primary { padding: 8px 11px; font-size: 0.67rem; }
+  .header-actions .btn--primary .icon { display: none; }
+  .nav { top: 68px; padding-inline: 16px; }
+
+  .hero { padding-top: 38px; }
+  .hero-brand { font-size: 0.68rem; letter-spacing: 0.26em; }
+  .hero-meta { gap: 9px; }
+  .hero-tags { font-size: 0.6rem; letter-spacing: 0.08em; }
+  .hero-title { font-size: clamp(2.05rem, 11.5vw, 3.1rem); }
+  .hero-lead { font-size: 0.93rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+  .hero-note { font-size: 0.7rem; }
+
+  .status-card { padding: 18px; }
+  .status-emblem { padding: 18px 0; }
+  .emblem-ring { width: 82px; height: 82px; }
+  .emblem-core { width: 52px; height: 52px; }
+  .emblem-core .icon { width: 26px; height: 26px; }
+  .emblem-copy strong { font-size: 1.08rem; }
+  .float-badge { right: 14px; font-size: 0.52rem; }
+  .server-facts span { font-size: 0.44rem; letter-spacing: 0.07em; }
+  .server-facts strong { font-size: 0.8rem; }
+  .status-list li { font-size: 0.76rem; }
+  .status-list b { font-size: 0.68rem; }
+  .status-foot { font-size: 0.62rem; }
+
+  .marquee-group span { padding: 11px 16px; font-size: 0.65rem; }
+
+  .section { padding: 64px 0; }
+  .section-head h2 { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+
+  .game-card { padding: 20px; }
+  .perk-card { padding: 22px; }
+  .perk-card h3 { padding-right: 18px; }
+  .role-card { padding: 22px; }
+  .rules-card { padding: 22px; }
+  .rules-list li { grid-template-columns: 30px minmax(0, 1fr); gap: 9px; }
+
+  .promo-controls { padding: 20px; }
+  .ad-output { padding: 16px; font-size: 0.7rem; max-height: 360px; }
+  .ad-actions { flex-direction: column; }
+  .ad-actions .btn { width: 100%; }
+  .ad-meta { font-size: 0.56rem; }
+  .tips-grid { grid-template-columns: minmax(0, 1fr); }
+
+  .cta-card { border-radius: 20px; padding-inline: 20px; }
+  .cta-actions { flex-direction: column; align-items: stretch; }
+  .cta-actions .btn { width: 100%; }
+  .cta-tagline { font-size: 0.58rem; letter-spacing: 0.12em; }
+
+  .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; padding: 40px 0 32px; }
+  .footer-brand { grid-column: auto; }
+
+  .toast-stack { left: 16px; right: 16px; bottom: 16px; width: auto; }
 }
 
-.reveal.active {
- opacity:1;
- transform:translateY(0);
+@media (max-width: 380px) {
+  .hero-stats { grid-template-columns: minmax(0, 1fr); }
+  .stat { padding-left: 0 !important; border-left: 0 !important; }
+  .stat + .stat { padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
 }
 
-@keyframes fadeUp {
- from {opacity:0;transform:translateY(25px)}
- to {opacity:1;transform:translateY(0)}
+/* ============================================================
+   MOTION / INPUT PREFERENCES
+   ============================================================ */
+
+@media (hover: none) {
+  .cursor-glow { display: none; }
 }
 
-/* MOBILE */
-
-@media(max-width:680px) {
- nav {padding:13px 4%}
- .nav-links {gap:10px}
- .nav-links a {font-size:10px}
- .hero {padding:75px 6%;min-height:470px}
- section {padding:50px 6%}
- .mouse-glow, .mouse-ring {display:none}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; }
+  [data-reveal] { opacity: 1; transform: none; }
+  .cursor-glow { display: none; }
 }
 
-@media(max-width:420px) {
- .nav-links {display:none}
- .hero h1 {font-size:55px}
-}
 
-@media(prefers-reduced-motion:reduce) {
- *,*::before,*::after {
-  animation:none!important;
-  transition:none!important;
-  scroll-behavior:auto!important;
- }
- .reveal {opacity:1;transform:none}
- .mouse-glow, .mouse-ring {display:none}
- .dot {animation:none}
-}
+
 </style>
+  
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="scroll-progress" aria-hidden="true"></div>
-<div class="mouse-glow" aria-hidden="true"></div>
-<div class="mouse-ring" aria-hidden="true"></div>
-
-<!-- LOADING SCREEN -->
-<div id="loader">
- <div>
-  <div class="loader-logo">E</div>
-  <h2>ELITES CLAN</h2>
-  <p>Entering the Elites Arena</p>
-  <div class="loading-bar"><span></span></div>
- </div>
-</div>
-
-<!-- NAVIGATION -->
-<nav id="nav">
- <a href="#" class="brand">
-  <span class="brand-icon">E</span>
-  ELITES
- </a>
-
- <div class="nav-links">
-  <a href="#offer">What we offer</a>
-  <a href="#games">Games</a>
-  <a href="#leadership">Leadership</a>
-  <a href="#join">Join</a>
- </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
- <div class="tag">ROBLOX CLAN RECRUITMENT</div>
-
- <h1>ELITES<br>CLAN</h1>
-
- <p>
-  A brand-new, active community for Roblox players
-  who want to hang out, game, and make friends.
-  Get in early and claim an early member role.
- </p>
-
- <div class="hero-buttons">
-  <a href="https://discord.gg/5J5QCGcay"
-     target="_blank" rel="noopener"
-     class="btn primary">JOIN DISCORD ↗</a>
-
-  <a href="#join" class="btn outline">SEE REQUIREMENTS</a>
- </div>
-
- <div class="live-stats">
-  <span><b data-count="76" data-suffix="+">0+</b> members</span>
-  <span><span class="dot"></span><b data-count="28" data-suffix="">0</b> online</span>
-  <span><span class="dot gold"></span><b data-count="20" data-suffix="">0</b> bots</span>
- </div>
-</header>
-
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
- <div class="ticker-track">
-  <div class="ticker-group">
-   <span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i>
-   <span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i>
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--one"></div>
+    <div class="bg-glow bg-glow--two"></div>
+    <div class="bg-noise"></div>
   </div>
-  <div class="ticker-group">
-   <span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i>
-   <span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i><span>ELITES</span><i>◆</i>
-  </div>
- </div>
-</div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-<!-- OFFER -->
-<section id="offer" class="reveal">
- <h2 class="sec-title">WHAT WE OFFER</h2>
- <p class="sec-sub">Everything you need to enjoy the Elites community.</p>
+  <!-- Icon sprite -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.5 14H11l-1 8 8.5-12H12l1-8Z" fill="currentColor"/></symbol>
+    <symbol id="i-discord" viewBox="0 0 24 24"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.6 12.6 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028ZM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z" fill="currentColor"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5Z" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.6 9.42 2 14.46 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.83 16h4.34a2 2 0 0 1 1.42.59L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.54-.6-6.58-.68-7.26A4 4 0 0 0 17.32 5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6 12h4M8 10v4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="15.5" cy="11.5" r="1" fill="currentColor"/><circle cx="18" cy="13.5" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7ZM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24"><path d="m3 7 4.5 4L12 3l4.5 8L21 7l-2 12H5L3 7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 22h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09ZM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2ZM9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3ZM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 11.5 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 6H4a2 2 0 0 0 0 4h1M17 6h3a2 2 0 0 1 0 4h-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 4v6h-6M3 20v-6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L3 10M21 14l-2.64-2.64A9 9 0 0 0 3.51 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
 
- <div class="grid">
-  <div class="card">
-   <h3>Easy onboarding</h3>
-   <p>Self-roles and server introductions so you can jump right in.</p>
-  </div>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="ELITES Clan — home">
+        <span class="brand-mark"><svg class="icon"><use href="#i-bolt"></use></svg></span>
+        <span class="brand-text"><strong>ELITES</strong><small>CLAN • ROBLOX</small></span>
+      </a>
 
-  <div class="card">
-   <h3>Levels and rewards</h3>
-   <p>Level up in chat and unlock rewards, bot commands, and a server economy.</p>
-  </div>
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#games">Games</a>
+        <a href="#perks">Perks</a>
+        <a href="#join">Get Involved</a>
+        <a href="#promo">Promo Kit</a>
+      </nav>
 
-  <div class="card">
-   <h3>Events and giveaways</h3>
-   <p>Server events, giveaways, and a place to share suggestions.</p>
-  </div>
+      <div class="header-actions">
+        <a class="btn btn--ghost btn--sm header-website" href="https://jsadw.github.io/Elites-clan/" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>
+          Website
+        </a>
+        <a class="btn btn--primary btn--sm" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-discord"></use></svg>
+          Join Discord
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <svg class="icon menu-icon" aria-hidden="true"><use href="#i-menu"></use></svg>
+          <svg class="icon close-icon" aria-hidden="true"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <div class="card">
-   <h3>Clan tryouts</h3>
-   <p>Open tryouts, staff applications, and partner program spots.</p>
-  </div>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-spotlight" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-brand" data-reveal>⚡ 𝐄 𝐋 𝐈 𝐓 𝐄 𝐒 ⚡</p>
 
-  <div class="card">
-   <h3>Booster perks</h3>
-   <p>Custom roles, exclusive chat access, and special perks for boosters.</p>
-  </div>
+          <div class="hero-meta" data-reveal>
+            <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Recruiting now</span>
+            <span class="hero-tags">🎮 ROBLOX <b>•</b> 🛡️ CLAN <b>•</b> 🎉 COMMUNITY</span>
+          </div>
 
-  <div class="card">
-   <h3>Showcases</h3>
-   <p>A gallery for artists and designers to show off their work.</p>
-  </div>
- </div>
-</section>
+          <h1 class="hero-title" id="hero-title" data-reveal>
+            <span class="hero-line">Play together.</span>
+            <span class="hero-line grad">Grow together.</span>
+          </h1>
 
-<!-- GAMES -->
-<section id="games" class="reveal">
- <h2 class="sec-title">GAME HUBS</h2>
- <p class="sec-sub">Play your favorite games with Elites.</p>
+          <p class="hero-lead" data-reveal>
+            <strong>Looking for your new Roblox home?</strong> Welcome to ELITES — a growing Roblox community where gaming, friendships, and good vibes come together. Whether you're here to compete, chill, meet new people, or join game nights, there's a place for you here.
+          </p>
 
- <ul class="games">
-  <li>Blox Fruits</li>
-  <li>Rivals</li>
-  <li>Evade</li>
-  <li>Da Hood</li>
-  <li>Murder Mystery 2</li>
- </ul>
-</section>
+          <div class="hero-actions" data-reveal>
+            <a class="btn btn--primary btn--lg" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-discord"></use></svg>
+              Join the Discord
+              <svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+            <button class="btn btn--outline btn--lg" type="button" data-copy="https://discord.gg/3vytekrY3" data-copy-label="Discord invite copied — share it with a friend!">
+              <svg class="icon" aria-hidden="true"><use href="#i-copy"></use></svg>
+              <span>Copy Invite</span>
+            </button>
+            <a class="btn btn--ghost btn--lg" href="https://jsadw.github.io/Elites-clan/" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg>
+              Visit Website
+            </a>
+          </div>
 
-<!-- LEADERSHIP -->
-<section id="leadership" class="reveal">
- <h2 class="sec-title">LEADERSHIP</h2>
+          <p class="hero-note" data-reveal>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> 13+ community
+            <span aria-hidden="true">·</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Free to join
+            <span aria-hidden="true">·</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> No application needed
+          </p>
 
- <div class="two-col">
-  <div class="card">
-   <h3>CEO OF ELITES</h3>
-   <h2 style="font-family:Orbitron;margin:10px 0">J</h2>
-   <p>Discord: niv_jadyen</p>
-  </div>
+          <div class="hero-stats" data-reveal aria-label="Community statistics">
+            <div class="stat">
+              <span class="stat-num"><span data-count="76">76</span>+</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num"><span data-count="5">5</span></span>
+              <span class="stat-label">Core games</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num stat-num--text">Weekly</span>
+              <span class="stat-label">Game nights</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">24/7</span>
+              <span class="stat-label">Community</span>
+            </div>
+          </div>
+        </div>
 
-  <div class="card">
-   <h3>OUR COMMUNITY</h3>
-   <p>Our goal is to build a strong Roblox community where everyone can play, compete, and make friends.</p>
-  </div>
- </div>
-</section>
+        <aside class="status-card" aria-label="Live clan status" data-reveal>
+          <span class="float-badge">OPEN TRYOUTS</span>
+          <div class="status-head">
+            <span class="status-title"><span class="live-dot" aria-hidden="true"></span> Live status</span>
+            <span class="status-code">ELT—001</span>
+          </div>
 
-<!-- REQUIREMENTS -->
-<section id="join" class="reveal">
- <h2 class="sec-title">REQUIREMENTS</h2>
+          <div class="status-emblem" aria-hidden="true">
+            <div class="emblem-ring"><span class="emblem-core"><svg class="icon"><use href="#i-bolt"></use></svg></span></div>
+            <div class="emblem-copy">
+              <strong>ELITES CLAN</strong>
+              <span>ROBLOX DIVISION</span>
+            </div>
+          </div>
 
- <div class="two-col">
-  <div class="card">
-   <h3>BEFORE JOINING</h3>
-   <ul class="req-list">
-    <li>You must be 13 or older to join.</li>
-    <li>Respect everyone and follow the rules.</li>
-    <li>Keep the community friendly.</li>
-    <li>Be active and participate.</li>
-    <li>Respect staff and other members.</li>
-   </ul>
-  </div>
+          <div class="roster">
+            <div class="roster-top">
+              <span><strong>76+</strong> members</span>
+              <span class="roster-status">GROWING</span>
+            </div>
+            <div class="meter" role="img" aria-label="76 members and growing">
+              <span style="width:76%"></span>
+            </div>
+            <p class="roster-note">Early Member Role still available</p>
+          </div>
 
-  <div class="card">
-   <h3>HOW TO JOIN</h3>
-   <p>Join our Discord server and open a ticket in clan tryouts to get started.</p>
-   <br>
-   <a href="https://discord.gg/5J5QCGcay"
-      target="_blank" rel="noopener"
-      class="btn primary">JOIN DISCORD ↗</a>
-  </div>
- </div>
-</section>
+          <div class="server-facts" aria-label="Discord server details">
+            <span><strong>56</strong>Humans</span>
+            <span><strong>20</strong>Bots</span>
+            <span><strong>76</strong>Total</span>
+            <span><strong>Aug 2026</strong>Est.</span>
+          </div>
 
-<!-- FINAL JOIN -->
-<section class="reveal">
- <div class="join-card">
-  <h2>READY TO BECOME ELITES?</h2>
-  <p>Join the community, meet new people, and become part of something bigger.</p>
+          <div class="server-tags" aria-label="Discord server tags">
+            <span>Roblox</span><span>Chill</span><span>Giveaways</span><span>Clan</span>
+          </div>
 
-  <a href="https://discord.gg/5J5QCGcay"
-     target="_blank" rel="noopener"
-     class="btn primary">JOIN THE DISCORD ↗</a>
- </div>
-</section>
+          <ul class="status-list">
+            <li>
+              <span class="status-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></span>
+              <span>Online now</span>
+              <b><span class="live-dot live-dot--sm" aria-hidden="true"></span><span id="online-count">30</span></b>
+            </li>
+            <li>
+              <span class="status-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg></span>
+              <span>Next game night</span>
+              <b>Friday • 8 PM</b>
+            </li>
+            <li>
+              <span class="status-icon"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg></span>
+              <span>Region</span>
+              <b>Global</b>
+            </li>
+            <li>
+              <span class="status-icon"><svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg></span>
+              <span>Voice chat</span>
+              <b class="text-green">Active</b>
+            </li>
+          </ul>
 
-<!-- FOOTER -->
-<footer>
- <span>© 2026 ELITES CLAN. All rights reserved.</span>
- <a href="https://discord.gg/5J5QCGcay"
-    target="_blank" rel="noopener">JOIN OUR DISCORD ↗</a>
-</footer>
+          <div class="activity">
+            <div class="activity-head"><span>Community feed</span><span class="activity-live"><span class="live-dot live-dot--sm" aria-hidden="true"></span>LIVE</span></div>
+            <ul class="activity-feed" id="activity-feed">
+              <li><span class="feed-dot"></span><span>Staff applications are open</span><time>now</time></li>
+              <li><span class="feed-dot"></span><span>Early Member role available</span><time>2m</time></li>
+              <li><span class="feed-dot"></span><span>Friday game night scheduled</span><time>8m</time></li>
+              <li><span class="feed-dot"></span><span>Giveaway channel is live</span><time>12m</time></li>
+            </ul>
+          </div>
 
-<noscript>
- <style>#loader{display:none}.reveal{opacity:1;transform:none}</style>
-</noscript>
+          <div class="status-foot">
+            <span><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg> Safe • Friendly • 13+</span>
+            <a href="#join" class="text-link">Get involved <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          </div>
+        </aside>
+      </div>
+    </section>
 
+    <div class="marquee" aria-label="ELITES highlights">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Game nights</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>Robux giveaways</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>VC hangouts</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>Clan tryouts</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>Custom roles</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>Booster perks</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>Good vibes</span><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>Game nights</span><svg class="icon"><use href="#i-bolt"></use></svg>
+          <span>Robux giveaways</span><svg class="icon"><use href="#i-bolt"></use></svg>
+          <span>VC hangouts</span><svg class="icon"><use href="#i-bolt"></use></svg>
+          <span>Clan tryouts</span><svg class="icon"><use href="#i-bolt"></use></svg>
+          <span>Custom roles</span><svg class="icon"><use href="#i-bolt"></use></svg>
+          <span>Booster perks</span><svg class="icon"><use href="#i-bolt"></use></svg>
+          <span>Good vibes</span><svg class="icon"><use href="#i-bolt"></use></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMES -->
+    <section class="section" id="games" aria-labelledby="games-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="section-head-main">
+            <p class="kicker"><span class="kicker-num">01</span> Games hub</p>
+            <h2 id="games-title">Pick your <span class="grad">battlefield.</span></h2>
+          </div>
+          <p class="section-desc">
+            <strong>Games we play:</strong> Blox Fruits, Rivals, Evade, Da Hood, Murder Mystery 2, and more. There's always a squad forming — hop in and run a few rounds.
+          </p>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filter games by style" data-reveal>
+          <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">All games <span class="chip-count">5</span></button>
+          <button class="chip" type="button" data-filter="grind" aria-pressed="false">Grinding</button>
+          <button class="chip" type="button" data-filter="pvp" aria-pressed="false">PvP</button>
+          <button class="chip" type="button" data-filter="horror" aria-pressed="false">Horror</button>
+          <button class="chip" type="button" data-filter="party" aria-pressed="false">Party</button>
+        </div>
+
+        <div class="games-grid" id="games-grid">
+          <article class="game-card" data-genre="grind raid" style="--accent:#b26bff; --accent-2:#4dd6ff" data-reveal>
+            <div class="game-top">
+              <span class="game-icon" aria-hidden="true">🍇</span>
+              <span class="game-index">01</span>
+            </div>
+            <div class="game-body">
+              <div class="game-title-row">
+                <h3>Blox Fruits</h3>
+                <span class="game-tag">Grind</span>
+              </div>
+              <p>Fruit hunting, boss raids, and sea-beast grinds. Crew up, level fast, and chase that next awakening.</p>
+              <div class="tags"><span>Raids</span><span>Fruit hunting</span><span>Leveling</span></div>
+            </div>
+            <a class="game-link" href="https://www.roblox.com/games/2753915549/Blox-Fruits" target="_blank" rel="noopener">
+              Play on Roblox <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </article>
+
+          <article class="game-card" data-genre="pvp fps" style="--accent:#ff5d5d; --accent-2:#ffb35c" data-reveal>
+            <div class="game-top">
+              <span class="game-icon" aria-hidden="true">🔫</span>
+              <span class="game-index">02</span>
+            </div>
+            <div class="game-body">
+              <div class="game-title-row">
+                <h3>Rivals</h3>
+                <span class="game-tag">PvP</span>
+              </div>
+              <p>Fast-paced 1v1 gunfights. Queue up, clutch the round, and climb the ranks with the clan behind you.</p>
+              <div class="tags"><span>1v1</span><span>FPS</span><span>Ranked</span></div>
+            </div>
+            <a class="game-link" href="https://www.roblox.com/games/17625359962/Rivals" target="_blank" rel="noopener">
+              Play on Roblox <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </article>
+
+          <article class="game-card" data-genre="horror party" style="--accent:#5dffa8; --accent-2:#d6ff5c" data-reveal>
+            <div class="game-top">
+              <span class="game-icon" aria-hidden="true">👻</span>
+              <span class="game-index">03</span>
+            </div>
+            <div class="game-body">
+              <div class="game-title-row">
+                <h3>Evade</h3>
+                <span class="game-tag">Horror</span>
+              </div>
+              <p>Chaotic horror rounds with the crew. Survive the chase, unlock the chaos, and try not to scream in VC.</p>
+              <div class="tags"><span>Survival</span><span>Party</span><span>Chaos</span></div>
+            </div>
+            <a class="game-link" href="https://www.roblox.com/games/9872472334/Evade" target="_blank" rel="noopener">
+              Play on Roblox <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </article>
+
+          <article class="game-card" data-genre="pvp roleplay" style="--accent:#ffa53d; --accent-2:#ff6b3d" data-reveal>
+            <div class="game-top">
+              <span class="game-icon" aria-hidden="true">💰</span>
+              <span class="game-index">04</span>
+            </div>
+            <div class="game-body">
+              <div class="game-title-row">
+                <h3>Da Hood</h3>
+                <span class="game-tag">RP</span>
+              </div>
+              <p>Street roleplay and crew wars. Stack cash, hold your territory, and run the block with your people.</p>
+              <div class="tags"><span>Roleplay</span><span>Crew wars</span><span>Street</span></div>
+            </div>
+            <a class="game-link" href="https://www.roblox.com/games/2788229376/Da-Hood" target="_blank" rel="noopener">
+              Play on Roblox <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </article>
+
+          <article class="game-card" data-genre="party mystery" style="--accent:#ff4d6d; --accent-2:#c084fc" data-reveal>
+            <div class="game-top">
+              <span class="game-icon" aria-hidden="true">🔪</span>
+              <span class="game-index">05</span>
+            </div>
+            <div class="game-body">
+              <div class="game-title-row">
+                <h3>Murder Mystery 2</h3>
+                <span class="game-tag">Mystery</span>
+              </div>
+              <p>Classic whodunit rounds. Hunt the murderer, solve the case, and trade knives between lobbies.</p>
+              <div class="tags"><span>Mystery</span><span>Trading</span><span>Party</span></div>
+            </div>
+            <a class="game-link" href="https://www.roblox.com/games/142823291/Murder-Mystery-2" target="_blank" rel="noopener">
+              Play on Roblox <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </article>
+        </div>
+
+        <div class="games-foot" data-reveal>
+          <p><svg class="icon" aria-hidden="true"><use href="#i-gamepad"></use></svg> …and more. New games get voted in by the community every week.</p>
+          <a class="btn btn--ghost btn--sm" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+            Suggest a game <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERKS -->
+    <section class="section" id="perks" aria-labelledby="perks-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="section-head-main">
+            <p class="kicker"><span class="kicker-num">02</span> Perks &amp; features</p>
+            <h2 id="perks-title">More than a <span class="grad">Discord.</span></h2>
+          </div>
+          <p class="section-desc">
+            <strong>Why join ELITES?</strong> Weekly events, real rewards, and a community that actually plays together. Here's what's waiting for you on the other side of the invite.
+          </p>
+        </div>
+
+        <div class="perks-grid">
+          <article class="perk-card" data-reveal>
+            <span class="perk-index" aria-hidden="true">01</span>
+            <span class="perk-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg></span>
+            <h3>Weekly Game Nights &amp; VC Hangouts</h3>
+            <p>Squad up every week for rotating game nights, late-night VC hangs, and community events across Roblox.</p>
+            <ul class="perk-tags"><li>Every week</li><li>Voice chat</li><li>All games</li></ul>
+          </article>
+
+          <article class="perk-card" data-reveal>
+            <span class="perk-index" aria-hidden="true">02</span>
+            <span class="perk-icon"><svg class="icon" aria-hidden="true"><use href="#i-gift"></use></svg></span>
+            <h3>Giveaways — Robux &amp; Nitro</h3>
+            <p>Robux, Nitro, and more drop in regular giveaways. Stay active, enter, and take home the prize.</p>
+            <ul class="perk-tags"><li>Robux</li><li>Nitro</li><li>Regular drops</li></ul>
+          </article>
+
+          <article class="perk-card" data-reveal>
+            <span class="perk-index" aria-hidden="true">03</span>
+            <span class="perk-icon"><svg class="icon" aria-hidden="true"><use href="#i-trophy"></use></svg></span>
+            <h3>Level Rewards &amp; Economy</h3>
+            <p>Earn XP, climb levels, unlock custom roles and exclusive lounges, and spend your coins in our server economy.</p>
+            <ul class="perk-tags"><li>XP &amp; levels</li><li>Custom roles</li><li>Exclusive lounges</li></ul>
+          </article>
+
+          <article class="perk-card" data-reveal>
+            <span class="perk-index" aria-hidden="true">04</span>
+            <span class="perk-icon"><svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg></span>
+            <h3>Open Clan Tryouts</h3>
+            <p>Tryouts are open to every skill level. Show up, play your role, and earn your spot on the roster.</p>
+            <ul class="perk-tags"><li>All skill levels</li><li>Open now</li><li>Earn your spot</li></ul>
+          </article>
+
+          <article class="perk-card perk-card--gold" data-reveal>
+            <span class="perk-index" aria-hidden="true">05</span>
+            <span class="perk-icon"><svg class="icon" aria-hidden="true"><use href="#i-rocket"></use></svg></span>
+            <h3>Booster Perks</h3>
+            <p>Support ELITES and unlock exclusive roles, special lounge access, and extra perks reserved for boosters.</p>
+            <ul class="perk-tags"><li>Exclusive roles</li><li>Booster lounge</li><li>Extra perks</li></ul>
+          </article>
+
+          <article class="perk-card perk-card--gold" data-reveal>
+            <span class="perk-index" aria-hidden="true">06</span>
+            <span class="perk-icon"><svg class="icon" aria-hidden="true"><use href="#i-crown"></use></svg></span>
+            <h3>Early Member Bonus</h3>
+            <p>Already 76+ members and growing! Join early and claim your exclusive Early Member Role while it's available.</p>
+            <ul class="perk-tags"><li>Limited role</li><li>Founding vibes</li><li>76+ members</li></ul>
+          </article>
+        </div>
+
+        <div class="perk-extras" data-reveal>
+          <span class="extras-label"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg> Also inside</span>
+          <span class="extra-chip">Economy &amp; counting</span>
+          <span class="extra-chip">Memes &amp; fun bots</span>
+          <span class="extra-chip">Creative gallery for artists, editors &amp; creators</span>
+          <span class="extra-chip">Custom roles</span>
+          <span class="extra-chip">Exclusive lounges</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET INVOLVED -->
+    <section class="section section--involved" id="join" aria-labelledby="join-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="section-head-main">
+            <p class="kicker"><span class="kicker-num">03</span> Get involved</p>
+            <h2 id="join-title">The door is <span class="grad">open.</span></h2>
+          </div>
+          <p class="section-desc">
+            <strong>Staff applications are OPEN. Partnerships are OPEN.</strong> Want to help build ELITES, host events, or team up with us? Step up — we'd love to have you.
+          </p>
+        </div>
+
+        <div class="involve-grid">
+          <div class="open-roles">
+            <article class="role-card" data-reveal>
+              <div class="role-top">
+                <span class="role-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg></span>
+                <span class="status-badge"><span class="status-dot" aria-hidden="true"></span>OPEN</span>
+              </div>
+              <h3>Staff Applications</h3>
+              <p>Moderators, event hosts, and community helpers wanted. Help shape ELITES from day one and keep the vibes immaculate.</p>
+              <div class="role-tags"><span>Moderator</span><span>Event host</span><span>Community helper</span></div>
+              <a class="btn btn--primary btn--sm" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+                Apply in Discord <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </article>
+
+            <article class="role-card" data-reveal>
+              <div class="role-top">
+                <span class="role-icon"><svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg></span>
+                <span class="status-badge"><span class="status-dot" aria-hidden="true"></span>OPEN</span>
+              </div>
+              <h3>Partnerships</h3>
+              <p>Run a server, clan, or creator community? Let's cross-promote, co-host events, and grow both communities together.</p>
+              <div class="role-tags"><span>Clans</span><span>Servers</span><span>Creators</span></div>
+              <a class="btn btn--outline btn--sm" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+                Partner with us <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </article>
+          </div>
+
+          <div class="rules-card" data-reveal>
+            <div class="rules-head">
+              <p class="kicker">Community rules</p>
+              <h3>Good vibes only.</h3>
+              <p>Four simple rules keep ELITES a place everyone wants to hang out in.</p>
+            </div>
+            <ol class="rules-list">
+              <li>
+                <span class="rule-num" aria-hidden="true">01</span>
+                <div><h4>13+ only</h4><p>Our community is strictly for members aged 13 and over.</p></div>
+              </li>
+              <li>
+                <span class="rule-num" aria-hidden="true">02</span>
+                <div><h4>Respect everyone</h4><p>Treat every member with respect — no harassment, hate, or drama.</p></div>
+              </li>
+              <li>
+                <span class="rule-num" aria-hidden="true">03</span>
+                <div><h4>Keep it friendly</h4><p>Keep chats welcoming. No spam, NSFW content, or toxic behavior.</p></div>
+              </li>
+              <li>
+                <span class="rule-num" aria-hidden="true">04</span>
+                <div><h4>Have fun &amp; be part of the community</h4><p>Join events, hop in VC, and make ELITES your home.</p></div>
+              </li>
+            </ol>
+            <p class="rules-note">
+              <svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>
+              By joining, you agree to keep ELITES a safe, friendly space for everyone.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps" data-reveal>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>Join the Discord</h3>
+            <p>Hit the invite, land in <code>#welcome</code>, and give the rules a quick read.</p>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Say hello</h3>
+            <p>Drop an intro, grab your game roles, and let the community know what you play.</p>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Squad up</h3>
+            <p>Join a game night, try out for the clan, or just vibe in VC. You're in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="promo" aria-labelledby="promo-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div class="section-head-main">
+            <p class="kicker"><span class="kicker-num">04</span> Promo generator</p>
+            <h2 id="promo-title">Spread the <span class="grad">word.</span></h2>
+          </div>
+          <p class="section-desc">
+            Our official server ad, ready to post. Pick a format, toggle what's included, then copy it in one click and share ELITES with the world.
+          </p>
+        </div>
+
+        <div class="promo-layout">
+          <div class="promo-controls panel" data-reveal>
+            <div class="control-head">
+              <div>
+                <p class="control-kicker">Ad template</p>
+                <h3>Build your post</h3>
+              </div>
+              <span class="official-tag"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg> Official</span>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Choose an ad template">
+              <button class="tab is-active" id="tab-full" type="button" role="tab" aria-selected="true" aria-controls="promo-preview" tabindex="0" data-template="full">Full Ad</button>
+              <button class="tab" id="tab-short" type="button" role="tab" aria-selected="false" aria-controls="promo-preview" tabindex="-1" data-template="short">Short</button>
+              <button class="tab" id="tab-bio" type="button" role="tab" aria-selected="false" aria-controls="promo-preview" tabindex="-1" data-template="bio">Bio</button>
+            </div>
+
+            <p class="control-note">Toggle the sections below — the preview updates instantly.</p>
+
+            <div class="switch-list">
+              <label class="switch-row">
+                <span class="switch-label"><strong>Emojis &amp; symbols</strong><small>⚡ 🎮 🛡️ for the full look</small></span>
+                <input type="checkbox" data-option="emojis" checked>
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+              <label class="switch-row">
+                <span class="switch-label"><strong>Games list</strong><small>Show what the clan plays</small></span>
+                <input type="checkbox" data-option="games" checked>
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+              <label class="switch-row">
+                <span class="switch-label"><strong>Perks &amp; open roles</strong><small>Why join, giveaways, tryouts</small></span>
+                <input type="checkbox" data-option="perks" checked>
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+              <label class="switch-row">
+                <span class="switch-label"><strong>Community rules</strong><small>13+ and good vibes</small></span>
+                <input type="checkbox" data-option="rules" checked>
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+              <label class="switch-row">
+                <span class="switch-label"><strong>Website &amp; Discord links</strong><small>Make it easy to join</small></span>
+                <input type="checkbox" data-option="links" checked>
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+              <label class="switch-row">
+                <span class="switch-label"><strong>Tagline</strong><small>End with the hype line</small></span>
+                <input type="checkbox" data-option="tagline" checked>
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+            </div>
+
+            <div class="mini-tip">
+              <svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg>
+              <p><strong>Pro tip:</strong> personalize the first line before posting — tailored posts get way more replies than copy-paste.</p>
+            </div>
+          </div>
+
+          <div class="promo-preview panel" id="promo-preview" role="tabpanel" aria-labelledby="tab-full" data-reveal>
+            <div class="terminal-bar">
+              <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="term-file">elites-ad.txt</span>
+              <span class="term-status"><span class="live-dot live-dot--sm" aria-hidden="true"></span>READY</span>
+            </div>
+            <div class="ad-window">
+              <pre class="ad-output" id="ad-output" tabindex="0" aria-label="Generated advertisement preview"></pre>
+            </div>            <div class="ad-meta">
+              <span id="char-count">0 / 2,000 characters</span>
+              <span class="ad-warning" id="char-warning" hidden>Discord may split this into multiple messages</span>
+            </div>
+            <div class="ad-actions">
+              <button class="btn btn--primary" type="button" id="copy-ad">
+                <svg class="icon copy-icon" aria-hidden="true"><use href="#i-copy"></use></svg>
+                <svg class="icon check-icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                <span>Copy Ad</span>
+              </button>
+              <button class="btn btn--outline" type="button" id="download-ad">
+                <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+                Download .txt
+              </button>
+              <button class="btn btn--ghost" type="button" id="reset-ad">
+                <svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>
+                Reset
+              </button>
+            </div>
+            <p class="preview-note">One click copies the exact text above — formatting included.</p>
+          </div>
+        </div>
+
+        <div class="tips-grid">
+          <article class="tip-card" data-reveal>
+            <span class="tip-num" aria-hidden="true">01</span>
+            <h3>Post where it's welcome</h3>
+            <p>Check each server's promo or partnership channel first. Respect their rules and never spam.</p>
+          </article>
+          <article class="tip-card" data-reveal>
+            <span class="tip-num" aria-hidden="true">02</span>
+            <h3>Make it yours</h3>
+            <p>Add a line about what you love in ELITES. A personal touch beats a wall of copy-paste every time.</p>
+          </article>
+          <article class="tip-card" data-reveal>
+            <span class="tip-num" aria-hidden="true">03</span>
+            <h3>Time it right</h3>
+            <p>Evenings and weekends get the most eyes. Drop your post when people are actually online.</p>
+          </article>
+          <article class="tip-card" data-reveal>
+            <span class="tip-num" aria-hidden="true">04</span>
+            <h3>Use the short version</h3>
+            <p>Bios, signatures, and DM intros work best with the Short or Bio template. Keep it punchy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section" id="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card" data-reveal>
+          <span class="cta-watermark" aria-hidden="true"><svg class="icon"><use href="#i-bolt"></use></svg></span>
+          <p class="kicker">Ready when you are</p>
+          <h2 id="cta-title">Don't just watch us grow —<br><span class="grad">grow with us.</span></h2>
+          <p class="cta-sub">Join ELITES today and be part of something that's only getting started.</p>
+          <div class="cta-actions">
+            <a class="btn btn--primary btn--lg" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-discord"></use></svg>
+              Join ELITES Today
+              <svg class="icon btn-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+            <button class="btn btn--outline btn--lg" type="button" data-copy="https://discord.gg/3vytekrY3" data-copy-label="Discord invite copied — welcome to ELITES!">
+              <svg class="icon" aria-hidden="true"><use href="#i-copy"></use></svg>
+              <span>Copy Invite</span>
+            </button>
+          </div>
+          <p class="cta-tagline">⚡ ELITES — PLAY TOGETHER. GROW TOGETHER. ⚡</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="ELITES Clan — back to top">
+          <span class="brand-mark"><svg class="icon"><use href="#i-bolt"></use></svg></span>
+          <span class="brand-text"><strong>ELITES</strong><small>CLAN • ROBLOX</small></span>
+        </a>
+        <p>Your home for Roblox gaming, giveaways, game nights &amp; new friends. <strong>76+ members</strong> and counting. Our website: <a href="https://jsadw.github.io/Elites-clan/" target="_blank" rel="noopener">jsadw.github.io/Elites-clan</a></p>
+        <div class="footer-badges">
+          <span class="mini-badge"><span class="live-dot live-dot--sm" aria-hidden="true"></span>Recruiting</span>
+          <span class="mini-badge">Roblox</span>
+          <span class="mini-badge">Chill</span>
+          <span class="mini-badge">Giveaways</span>
+          <span class="mini-badge">Clan</span>
+          <span class="mini-badge">13+</span>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Explore">
+        <h3>Explore</h3>
+        <a href="#games">Games hub</a>
+        <a href="#perks">Perks &amp; features</a>
+        <a href="#join">Get involved</a>
+        <a href="#promo">Promo kit</a>
+      </nav>
+
+      <div class="footer-col">
+        <h3>Community</h3>
+        <a href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">Discord server <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        <a href="https://jsadw.github.io/Elites-clan/" target="_blank" rel="noopener">Official website <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        <a href="#join">Community rules</a>
+        <a href="#join">Staff applications</a>
+      </div>
+
+      <div class="footer-col footer-cta">
+        <h3>Ready to join?</h3>
+        <p>Free to join, no application needed. Just bring good vibes.</p>
+        <a class="btn btn--primary btn--sm" href="https://discord.gg/3vytekrY3" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-discord"></use></svg>
+          Join Discord
+        </a>
+        <a class="back-top" href="#top">
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg> Back to top
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> ELITES Clan • Est. Aug 2026. Play together. Grow together.</p>
+      <p class="footer-fineprint">Not affiliated with or endorsed by Roblox Corporation. Community for ages 13+.</p>
+    </div>
+  </footer>
+
+  <div class="toast-stack" id="toast-stack" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <noscript>
+    <div class="noscript-banner">Enable JavaScript to use the promo generator, copy buttons, and live stats. The Discord invite is <a href="https://discord.gg/3vytekrY3">discord.gg/3vytekrY3</a>.</div>
+    <style>[data-reveal]{opacity:1!important;transform:none!important}</style>
+  </noscript>
 <script>
-(function () {
- "use strict";
+/* ============================================================
+   ELITES CLAN — interactions
+   ============================================================ */
+(() => {
+  "use strict";
 
- var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- var finePointer = window.matchMedia("(pointer: fine)").matches;
+  const $ = (selector, context = document) => context.querySelector(selector);
+  const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
- /* TWO SECOND LOADING SCREEN */
- window.addEventListener("load", function () {
-  setTimeout(function () {
-   var loader = document.getElementById("loader");
-   if (loader) loader.classList.add("done");
-   document.body.classList.add("ready");
-   startCounters();
-  }, 2000);
- });
+  /* ---------- toasts ---------- */
+  const toastStack = $("#toast-stack");
 
- /* SCROLL REVEAL */
- var reveals = document.querySelectorAll(".reveal");
+  function showToast(title, detail = "", icon = "check") {
+    if (!toastStack) return;
+    const toast = document.createElement("div");
+    toast.className = "toast";
 
- if (!("IntersectionObserver" in window)) {
-  reveals.forEach(function (el) { el.classList.add("active"); });
- } else {
-  var observer = new IntersectionObserver(function (entries) {
-   entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
-     entry.target.classList.add("active");
-     observer.unobserve(entry.target);
+    const iconWrap = document.createElement("span");
+    iconWrap.className = "toast-icon";
+    iconWrap.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-${icon}"></use></svg>`;
+
+    const body = document.createElement("div");
+    const strong = document.createElement("strong");
+    strong.textContent = title;
+    body.appendChild(strong);
+    if (detail) {
+      const span = document.createElement("span");
+      span.textContent = detail;
+      body.appendChild(span);
     }
-   });
-  }, { threshold: 0.12 });
 
-  reveals.forEach(function (el) { observer.observe(el); });
- }
+    toast.append(iconWrap, body);
+    toastStack.appendChild(toast);
+    while (toastStack.children.length > 3) toastStack.firstElementChild.remove();
 
- /* SCROLL PROGRESS + NAV STATE */
- var nav = document.getElementById("nav");
- var progress = document.querySelector(".scroll-progress");
-
- function onScroll() {
-  var doc = document.documentElement;
-  var max = doc.scrollHeight - doc.clientHeight;
-  var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
-
-  if (progress) progress.style.width = pct + "%";
-  if (nav) nav.classList.toggle("scrolled", doc.scrollTop > 12);
- }
-
- window.addEventListener("scroll", onScroll, { passive: true });
- window.addEventListener("resize", onScroll);
- onScroll();
-
- /* ANIMATED STAT COUNTERS */
- var countersStarted = false;
-
- function animateCount(el) {
-  var target = parseFloat(el.getAttribute("data-count")) || 0;
-  var suffix = el.getAttribute("data-suffix") || "";
-  var duration = 1400;
-  var start = null;
-
-  if (reduceMotion) {
-   el.textContent = target + suffix;
-   return;
+    window.setTimeout(() => {
+      toast.classList.add("is-leaving");
+      window.setTimeout(() => toast.remove(), 320);
+    }, 3800);
   }
 
-  function step(ts) {
-   if (start === null) start = ts;
-   var progress = Math.min((ts - start) / duration, 1);
-   var eased = 1 - Math.pow(1 - progress, 3);
-   el.textContent = Math.round(target * eased) + suffix;
-   if (progress < 1) requestAnimationFrame(step);
+  /* ---------- clipboard ---------- */
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (error) {
+      /* fall through to legacy copy */
+    }
+
+    try {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.top = "-9999px";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      area.setSelectionRange(0, text.length);
+      const ok = document.execCommand("copy");
+      area.remove();
+      return ok;
+    } catch (error) {
+      return false;
+    }
   }
 
-  requestAnimationFrame(step);
- }
-
- function startCounters() {
-  if (countersStarted) return;
-  countersStarted = true;
-
-  var counters = document.querySelectorAll("[data-count]");
-
-  if (!("IntersectionObserver" in window)) {
-   counters.forEach(animateCount);
-   return;
+  function flashButton(button) {
+    const label = button.querySelector("span");
+    if (!label) return;
+    if (!button.dataset.originalLabel) button.dataset.originalLabel = label.textContent;
+    label.textContent = "Copied!";
+    button.classList.add("is-copied");
+    window.setTimeout(() => {
+      label.textContent = button.dataset.originalLabel;
+      button.classList.remove("is-copied");
+    }, 2000);
   }
 
-  var countObserver = new IntersectionObserver(function (entries) {
-   entries.forEach(function (entry) {
-    if (!entry.isIntersecting) return;
-    animateCount(entry.target);
-    countObserver.unobserve(entry.target);
-   });
-  }, { threshold: 0.5 });
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-copy]");
+    if (!button) return;
 
-  counters.forEach(function (el) { countObserver.observe(el); });
- }
+    const text = button.getAttribute("data-copy");
+    const message = button.getAttribute("data-copy-label") || "Copied to clipboard!";
+    const ok = await copyText(text);
 
- /* GLOWING MOUSE */
- var glow = document.querySelector(".mouse-glow");
- var ring = document.querySelector(".mouse-ring");
-
- if (glow && ring && finePointer && !reduceMotion) {
-  var tx = window.innerWidth / 2;
-  var ty = window.innerHeight / 2;
-  var gx = tx, gy = ty;
-  var rx = tx, ry = ty;
-  var active = false;
-
-  function show() {
-   if (active) return;
-   active = true;
-   gx = rx = tx;
-   gy = ry = ty;
-   glow.classList.add("on");
-   ring.classList.add("on");
-  }
-
-  function hide() {
-   active = false;
-   glow.classList.remove("on");
-   ring.classList.remove("on");
-  }
-
-  window.addEventListener("pointermove", function (e) {
-   tx = e.clientX;
-   ty = e.clientY;
-   show();
-  }, { passive: true });
-
-  document.addEventListener("pointerleave", hide);
-  window.addEventListener("blur", hide);
-
-  (function loop() {
-   gx += (tx - gx) * 0.12;
-   gy += (ty - gy) * 0.12;
-   rx += (tx - rx) * 0.22;
-   ry += (ty - ry) * 0.22;
-
-   glow.style.transform = "translate3d(" + gx + "px," + gy + "px,0)";
-   ring.style.transform = "translate3d(" + rx + "px," + ry + "px,0)";
-
-   requestAnimationFrame(loop);
-  })();
-
-  /* ring grows over anything clickable */
-  document.addEventListener("pointerover", function (e) {
-   var hot = e.target.closest("a, button, .card, .games li, .btn");
-   ring.classList.toggle("hot", !!hot);
+    if (ok) {
+      showToast("Copied!", message);
+      flashButton(button);
+    } else {
+      showToast("Couldn't copy automatically", "Select the text and copy it manually.", "close");
+    }
   });
- }
 
- /* CARD SPOTLIGHT FOLLOWS MOUSE */
- if (finePointer && !reduceMotion) {
-  document.querySelectorAll(".card").forEach(function (card) {
-   card.addEventListener("pointermove", function (e) {
-    var rect = card.getBoundingClientRect();
-    card.style.setProperty("--mx", (e.clientX - rect.left) + "px");
-    card.style.setProperty("--my", (e.clientY - rect.top) + "px");
-   });
-  });
- }
+  /* ---------- header ---------- */
+  const header = $(".site-header");
+  if (header) {
+    const syncHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 12);
+    syncHeader();
+    window.addEventListener("scroll", syncHeader, { passive: true });
+  }
+
+  /* ---------- mobile navigation ---------- */
+  const nav = $("#primary-nav");
+  const menuToggle = $(".menu-toggle");
+
+  function setMenu(open) {
+    if (!nav || !menuToggle) return;
+    nav.classList.toggle("is-open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.body.classList.toggle("menu-open", open);
+  }
+
+  if (nav && menuToggle) {
+    menuToggle.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setMenu(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) setMenu(false);
+    });
+  }
+
+  /* ---------- active nav link ---------- */
+  const navLinks = $$("#primary-nav a");
+  const linkedSections = navLinks
+    .map((link) => {
+      const id = link.getAttribute("href");
+      const section = id && id.startsWith("#") ? $(id) : null;
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
+
+  if (linkedSections.length && "IntersectionObserver" in window) {
+    const activeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((link) => link.classList.remove("is-active"));
+          const match = linkedSections.find((item) => item.section === entry.target);
+          if (match) match.link.classList.add("is-active");
+        });
+      },
+      { rootMargin: "-42% 0px -52% 0px", threshold: 0 }
+    );
+    linkedSections.forEach(({ section }) => activeObserver.observe(section));
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  const revealElements = $$("[data-reveal]");
+  const revealAll = () => {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+  };
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealAll();
+  } else {
+    let revealStarted = false;
+    const revealFallback = window.setTimeout(revealAll, 3500);
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (!revealStarted) {
+            revealStarted = true;
+            window.clearTimeout(revealFallback);
+          }
+          const siblings = Array.from(entry.target.parentElement.children).filter((el) =>
+            el.hasAttribute("data-reveal")
+          );
+          const index = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${Math.min(Math.max(index, 0) * 65, 260)}ms`;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" }
+    );
+    revealElements.forEach((element) => revealObserver.observe(element));
+
+    window.addEventListener("error", revealAll);
+  }
+
+  /* ---------- animated stat counters ---------- */
+  function animateCount(element) {
+    const target = Number(element.dataset.count || 0);
+    if (reduceMotion || target <= 0) {
+      element.textContent = String(target);
+      return;
+    }
+
+    const duration = 1300;
+    const start = performance.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      element.textContent = String(Math.round(target * easeOut(progress)));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  const counters = $$("[data-count]");
+  if (counters.length) {
+    if (!("IntersectionObserver" in window)) {
+      counters.forEach(animateCount);
+    } else {
+      const counterObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.6 }
+      );
+      counters.forEach((counter) => counterObserver.observe(counter));
+    }
+  }
+
+  /* ---------- live-style online count ---------- */
+  const onlineCount = $("#online-count");
+  if (onlineCount) {
+    window.setInterval(() => {
+      const current = Number(onlineCount.textContent) || 30;
+      const drift = Math.random() < 0.5 ? -1 : 1;
+      const next = Math.min(34, Math.max(26, current + drift));
+      onlineCount.textContent = String(next);
+      if (!reduceMotion && onlineCount.animate) {
+        onlineCount.animate(
+          [
+            { opacity: 0.35, transform: "translateY(-2px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          { duration: 420, easing: "ease-out" }
+        );
+      }
+    }, 6000);
+  }
+
+  /* ---------- community feed ---------- */
+  const feed = $("#activity-feed");
+  if (feed && !reduceMotion) {
+    const feedMessages = [
+      "Staff applications are open",
+      "Early Member role available",
+      "Friday game night scheduled",
+      "Giveaway channel is live",
+      "Clan tryouts are open",
+      "New members joined the server",
+      "A member boosted ELITES",
+    ];
+    let feedIndex = 0;
+
+    window.setInterval(() => {
+      const item = document.createElement("li");
+      item.className = "is-new";
+      const dot = document.createElement("span");
+      dot.className = "feed-dot";
+      const label = document.createElement("span");
+      label.textContent = feedMessages[feedIndex % feedMessages.length];
+      const time = document.createElement("time");
+      time.textContent = "now";
+      item.append(dot, label, time);
+      feed.prepend(item);
+      feedIndex += 1;
+
+      while (feed.children.length > 4) feed.lastElementChild.remove();
+      $$("time", feed).forEach((stamp, index) => {
+        stamp.textContent = index === 0 ? "now" : `${index * 2 + 1}m`;
+      });
+    }, 9000);
+  }
+
+  /* ---------- games filter ---------- */
+  const filterChips = $$("[data-filter]");
+  const gamesGrid = $("#games-grid");
+
+  if (filterChips.length && gamesGrid) {
+    const gameCards = $$(".game-card", gamesGrid);
+
+    filterChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const filter = chip.dataset.filter;
+        filterChips.forEach((item) => {
+          const active = item === chip;
+          item.classList.toggle("is-active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+
+        gamesGrid.classList.toggle("is-filtered", filter !== "all");
+        gameCards.forEach((card) => {
+          const genres = (card.dataset.genre || "").split(/\s+/);
+          const visible = filter === "all" || genres.includes(filter);
+          card.classList.toggle("is-hidden", !visible);
+          card.setAttribute("aria-hidden", String(!visible));
+        });
+      });
+    });
+  }
+
+  /* ---------- cursor glow ---------- */
+  const cursorGlow = $(".cursor-glow");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (cursorGlow && finePointer && !reduceMotion) {
+    document.body.classList.add("has-pointer");
+    let frame = null;
+    let pointerX = 0;
+    let pointerY = 0;
+
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          cursorGlow.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
+          frame = null;
+        });
+      },
+      { passive: true }
+    );
+  }
+
+  /* ---------- year ---------- */
+  const year = $("#year");
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  /* ---------- promo generator ---------- */
+  const adOutput = $("#ad-output");
+  const adWindow = $(".ad-window");
+  const charCount = $("#char-count");
+  const charWarning = $("#char-warning");
+  const copyAdButton = $("#copy-ad");
+  const downloadAdButton = $("#download-ad");
+  const resetAdButton = $("#reset-ad");
+  const templateTabs = $$("[data-template]");
+
+  const AD = {
+    header: "⚡ 𝐄 𝐋 𝐈 𝐓 𝐄 𝐒 ⚡\n🎮 ROBLOX • 🛡️ CLAN • 🎉 COMMUNITY",
+    intro:
+      "LOOKING FOR YOUR NEW ROBLOX HOME? Welcome to ELITES — a growing Roblox community where gaming, friendships, and good vibes come together! Whether you're here to compete, chill, meet new people, or join game nights, there's a place for you here.",
+    games:
+      "GAMES WE PLAY: Blox Fruits, Rivals, Evade, Da Hood, Murder Mystery 2, and more.",
+    perks:
+      "WHY JOIN ELITES: Weekly game nights & VC hangouts, Giveaways (Robux, Nitro & more), Level rewards, custom roles & exclusive lounges, Clan tryouts (all skill levels welcome), Economy, counting, memes & fun bots, Creative gallery for artists, editors & creators.",
+    involved: "GET INVOLVED: Staff applications are OPEN, Partnerships are OPEN.",
+    booster:
+      "BOOSTER PERKS: Support ELITES and unlock exclusive roles, special lounge access, and extra perks!",
+    early:
+      "EARLY MEMBER BONUS: Already 76+ members and growing! Join early and claim your exclusive Early Member Role while it's available!",
+    rules:
+      "COMMUNITY RULES: 13+ only, Respect everyone, Keep it friendly, Have fun and be part of the community!",
+    links:
+      "LINKS: Website (https://jsadw.github.io/Elites-clan/) | Discord (https://discord.gg/3vytekrY3)",
+    tagline:
+      "Don't just watch us grow — grow with us. JOIN ELITES TODAY!\n⚡ ELITES — PLAY TOGETHER. GROW TOGETHER. ⚡",
+  };
+
+  const AD_OPTION_DEFAULTS = {
+    emojis: true,
+    games: true,
+    perks: true,
+    rules: true,
+    links: true,
+    tagline: true,
+  };
+
+  const adState = {
+    template: "full",
+    options: { ...AD_OPTION_DEFAULTS },
+  };
+
+  function buildAd(template, options) {
+    if (template === "short") {
+      const lines = [
+        AD.header,
+        "⚡ ELITES — a growing Roblox community for game nights, giveaways, and good vibes. 76+ members and counting!",
+      ];
+      if (options.games) {
+        lines.push("🎮 GAMES: Blox Fruits, Rivals, Evade, Da Hood, MM2 & more.");
+      }
+      if (options.perks) {
+        lines.push("🎉 OPEN: Staff applications + partnerships. Clan tryouts for all skill levels.");
+      }
+      if (options.rules) {
+        lines.push("🛡️ 13+ community. Respect everyone. Keep it friendly.");
+      }
+      if (options.links) lines.push(AD.links);
+      if (options.tagline) {
+        lines.push("Don't just watch us grow — grow with us. JOIN ELITES TODAY!");
+      }
+      return lines.join("\n");
+    }
+
+    if (template === "bio") {
+      const lines = ["⚡ ELITES — Roblox Clan & Community"];
+      const stats = [];
+      if (options.rules) stats.push("13+");
+      stats.push("76+ members");
+      if (options.perks) stats.push("Game nights", "Giveaways", "Open tryouts");
+      if (stats.length) lines.push(stats.join(" • "));
+      if (options.games) {
+        lines.push("🎮 Blox Fruits • Rivals • Evade • Da Hood • MM2");
+      }
+      if (options.links) lines.push("🔗 discord.gg/3vytekrY3");
+      if (options.tagline) lines.push("Play together. Grow together.");
+      return lines.join("\n");
+    }
+
+    const blocks = [AD.header, AD.intro];
+    if (options.games) blocks.push(AD.games);
+    if (options.perks) {
+      blocks.push(AD.perks, AD.involved, AD.booster, AD.early);
+    }
+    if (options.rules) blocks.push(AD.rules);
+    if (options.links) blocks.push(AD.links);
+    if (options.tagline) blocks.push(AD.tagline);
+    return blocks.join("\n\n");
+  }
+
+  const EMOJI_PATTERN =
+    /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu;
+
+  function stripEmojis(text) {
+    return text
+      .replace(EMOJI_PATTERN, "")
+      .split("\n")
+      .map((line) => line.replace(/[ \t]{2,}/g, " ").replace(/^[ \t]+|[ \t]+$/g, ""))
+      .join("\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
+  function normalizeAd(text) {
+    return text
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
+  function renderAd() {
+    if (!adOutput) return;
+    const raw = buildAd(adState.template, adState.options);
+    const text = adState.options.emojis ? normalizeAd(raw) : stripEmojis(raw);
+
+    adOutput.textContent = text;
+    adOutput.scrollTop = 0;
+    if (charCount) {
+      charCount.textContent = `${text.length.toLocaleString()} / 2,000 characters`;
+    }
+    if (charWarning) charWarning.hidden = text.length <= 2000;
+    syncAdScrollFade();
+
+    if (copyAdButton) {
+      copyAdButton.classList.remove("is-copied");
+      const label = copyAdButton.querySelector("span");
+      if (label) label.textContent = "Copy Ad";
+    }
+  }
+
+  function syncAdScrollFade() {
+    if (!adWindow || !adOutput) return;
+    const atEnd = adOutput.scrollTop + adOutput.clientHeight >= adOutput.scrollHeight - 4;
+    adWindow.classList.toggle("is-at-end", atEnd);
+  }
+
+  function selectTemplate(name, focus = false) {
+    adState.template = name;
+    templateTabs.forEach((tab) => {
+      const active = tab.dataset.template === name;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+    const panel = $("#promo-preview");
+    if (panel) panel.setAttribute("aria-labelledby", `tab-${name}`);
+    renderAd();
+  }
+
+  if (adOutput) {
+    adOutput.addEventListener("scroll", syncAdScrollFade, { passive: true });
+    window.addEventListener("resize", syncAdScrollFade);
+
+    templateTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectTemplate(tab.dataset.template));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex = null;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % templateTabs.length;
+        if (event.key === "ArrowLeft") {
+          nextIndex = (index - 1 + templateTabs.length) % templateTabs.length;
+        }
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = templateTabs.length - 1;
+        if (nextIndex === null) return;
+        event.preventDefault();
+        selectTemplate(templateTabs[nextIndex].dataset.template, true);
+      });
+    });
+
+    $$("[data-option]").forEach((input) => {
+      input.checked = Boolean(adState.options[input.dataset.option]);
+      input.addEventListener("change", () => {
+        adState.options[input.dataset.option] = input.checked;
+        renderAd();
+      });
+    });
+
+    copyAdButton?.addEventListener("click", async () => {
+      const ok = await copyText(adOutput.textContent);
+      if (ok) {
+        copyAdButton.classList.add("is-copied");
+        const label = copyAdButton.querySelector("span");
+        if (label) label.textContent = "Copied!";
+        showToast("Ad copied!", "Paste it in your promo channel and spread the word.");
+        window.setTimeout(() => {
+          copyAdButton.classList.remove("is-copied");
+          if (label) label.textContent = "Copy Ad";
+        }, 2400);
+      } else {
+        const range = document.createRange();
+        range.selectNodeContents(adOutput);
+        const selection = window.getSelection();
+        if (selection) {
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+        showToast("Copy blocked by your browser", "The ad is selected — press Ctrl+C to copy.", "close");
+      }
+    });
+
+    downloadAdButton?.addEventListener("click", () => {
+      const blob = new Blob([adOutput.textContent], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "elites-ad.txt";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      showToast("Download ready", "elites-ad.txt has been saved.");
+    });
+
+    resetAdButton?.addEventListener("click", () => {
+      adState.options = { ...AD_OPTION_DEFAULTS };
+      $$("[data-option]").forEach((input) => {
+        input.checked = true;
+      });
+      selectTemplate("full");
+      showToast("Generator reset", "Back to the official full ad.");
+    });
+
+    renderAd();
+  }
 })();
-</script>
 
+</script>
 </body>
 </html>
