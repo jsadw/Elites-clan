@@ -72,6 +72,118 @@ body {
 }
 
 body.menu-open { overflow: hidden; }
+body.is-loading { overflow: hidden; }
+
+/* ---------- loading screen ---------- */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 42%, rgba(255, 214, 10, 0.09), transparent 70%),
+    #050506;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  animation: loader-failsafe 0.5s ease 3.2s forwards;
+}
+.page-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  text-align: center;
+}
+.loader-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  border: 1px solid rgba(255, 214, 10, 0.3);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 230, 120, 0.16), transparent 62%), #0b0b0e;
+  box-shadow: 0 0 60px -14px rgba(255, 214, 10, 0.6), 0 0 0 1px rgba(255, 214, 10, 0.12) inset;
+  animation: loader-pulse 1.7s ease-in-out infinite;
+}
+.loader-mark::before {
+  content: "";
+  position: absolute;
+  inset: -11px;
+  border: 1px dashed rgba(255, 214, 10, 0.2);
+  border-radius: 50%;
+  animation: spin-slow 8s linear infinite;
+}
+.loader-mark::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid transparent;
+  border-top-color: var(--gold);
+  border-right-color: rgba(255, 214, 10, 0.3);
+  border-radius: 50%;
+  animation: spin-slow 1.7s linear infinite;
+}
+.loader-mark .icon {
+  width: 37px;
+  height: 37px;
+  color: var(--gold);
+  filter: drop-shadow(0 0 12px rgba(255, 214, 10, 0.75));
+}
+.loader-brand {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 4vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+  color: var(--gold-bright);
+  text-shadow: 0 0 26px rgba(255, 214, 10, 0.3);
+}
+.loader-bar {
+  width: min(240px, 62vw);
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.loader-bar span {
+  display: block;
+  width: 38%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), transparent);
+  box-shadow: 0 0 16px var(--gold);
+  animation: loader-scan 1.15s ease-in-out infinite;
+}
+.loader-text {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.loader-dots { animation: loader-blink 1s steps(2, end) infinite; }
+
+@keyframes loader-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 52px -16px rgba(255, 214, 10, 0.5), 0 0 0 1px rgba(255, 214, 10, 0.12) inset; }
+  50% { transform: scale(1.045); box-shadow: 0 0 72px -10px rgba(255, 214, 10, 0.72), 0 0 0 1px rgba(255, 214, 10, 0.18) inset; }
+}
+@keyframes loader-scan {
+  from { transform: translateX(-115%); }
+  to { transform: translateX(365%); }
+}
+@keyframes loader-blink {
+  50% { opacity: 0.25; }
+}
+@keyframes loader-failsafe {
+  to { opacity: 0; visibility: hidden; }
+}
 
 main,
 .site-header,
@@ -2568,6 +2680,18 @@ body.has-pointer .cursor-glow { opacity: 1; }
     <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </svg>
 
+  <!-- Loading screen -->
+  <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Loading ELITES">
+    <div class="loader-inner">
+      <div class="loader-mark">
+        <svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+      </div>
+      <p class="loader-brand">⚡ 𝐄 𝐋 𝐈 𝐓 𝐄 𝐒 ⚡</p>
+      <div class="loader-bar" aria-hidden="true"><span></span></div>
+      <p class="loader-text">Loading the clan<span class="loader-dots" aria-hidden="true">...</span></p>
+    </div>
+  </div>
+
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="ELITES Clan — home">
@@ -3261,7 +3385,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
 
   <noscript>
     <div class="noscript-banner">Enable JavaScript to use the promo generator, copy buttons, and live stats. The Discord invite is <a href="https://discord.gg/3vytekrY3">discord.gg/3vytekrY3</a>.</div>
-    <style>[data-reveal]{opacity:1!important;transform:none!important}</style>
+    <style>[data-reveal]{opacity:1!important;transform:none!important}.page-loader{display:none!important}body.is-loading{overflow:auto!important}</style>
   </noscript>
 <script>
 /* ============================================================
@@ -3273,6 +3397,36 @@ body.has-pointer .cursor-glow { opacity: 1; }
   const $ = (selector, context = document) => context.querySelector(selector);
   const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- loading screen ---------- */
+  const pageLoader = $("#page-loader");
+  if (pageLoader) {
+    const loaderStart = performance.now();
+    const minLoaderTime = 2500;
+    let loaderHidden = false;
+
+    document.body.classList.add("is-loading");
+
+    const hideLoader = () => {
+      if (loaderHidden) return;
+      loaderHidden = true;
+      pageLoader.classList.add("is-done");
+      document.body.classList.remove("is-loading");
+      window.setTimeout(() => pageLoader.remove(), 700);
+    };
+
+    window.addEventListener(
+      "load",
+      () => {
+        const remaining = Math.max(0, minLoaderTime - (performance.now() - loaderStart));
+        window.setTimeout(hideLoader, remaining);
+      },
+      { once: true }
+    );
+
+    // Never hold the page hostage if load is unusually slow.
+    window.setTimeout(hideLoader, 3000);
+  }
 
   /* ---------- toasts ---------- */
   const toastStack = $("#toast-stack");
