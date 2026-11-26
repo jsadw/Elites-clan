@@ -3993,5 +3993,289 @@ body.has-pointer .cursor-glow { opacity: 1; }
 })();
 
 </script>
+  <!-- ===== ELITES extras + security: paste this whole block right ABOVE the last </body> in index.html ===== -->
+<script>
+(() => {
+  "use strict";
+  const C = {
+    name: "Jayden",
+    discord: "niv_jadyen",
+    email: "eilitesclan@gmail.com",
+    invite: "https://discord.gg/3vytekrY3",
+    roblox: "roblox_user_8666190250",
+  };
+  // Add REAL member quotes here: { quote: "…", name: "…", role: "Member" }
+  const TESTIMONIALS = [];
+  // Optional YouTube video ID for an intro video (leave "" to hide)
+  const VIDEO_ID = "";
+
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const sec = (id, html, cls = "") => {
+    const s = document.createElement("section");
+    s.className = "section " + cls; s.id = id; s.setAttribute("aria-labelledby", id + "-t");
+    s.innerHTML = `<div class="container">${html}</div>`;
+    return s;
+  };
+  const head = (n, k, t, d) => `<div class="section-head is-visible"><div class="section-head-main"><p class="kicker"><span class="kicker-num">${n}</span> ${k}</p><h2 id="${t[0]}-t">${t[1]}</h2></div><p class="section-desc">${d}</p></div>`;
+  const toast = (a, b) => {
+    const st = $("#toast-stack"); if (!st) return;
+    const t = document.createElement("div"); t.className = "toast";
+    t.innerHTML = `<span class="toast-icon"><svg class="icon"><use href="#i-check"></use></svg></span><div><strong></strong><span></span></div>`;
+    $("strong", t).textContent = a; $("span:last-child", t).textContent = b || "";
+    st.appendChild(t); setTimeout(() => t.remove(), 3500);
+  };
+  const copy = async (txt) => { try { await navigator.clipboard.writeText(txt); toast("Copied!", txt); } catch { toast("Copy blocked", "Select and copy manually."); } };
+
+  /* ---------- CSS ---------- */
+  const css = document.createElement("style");
+  css.textContent = `
+.server-facts strong,.roster-top strong,.stat-num{font-family:var(--font-body);font-variant-numeric:lining-nums tabular-nums;font-weight:800}
+@media(max-width:1100px){.header-website{display:none}}
+@media(min-width:901px) and (max-width:1100px){.nav a.nav-x{display:none}}
+.x-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.x-card{padding:24px;border:1px solid var(--line-soft);border-radius:var(--radius);background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.008)),var(--panel);transition:transform .3s var(--ease),border-color .3s}
+.x-card:hover{border-color:var(--line-strong)}
+.x-card h3{font-family:var(--font-display);font-size:1.15rem;margin-bottom:6px}
+.x-card p,.x-card li{color:var(--muted);font-size:.86rem}
+.x-chip{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:9px;padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:var(--gold-soft);color:var(--text);font-family:var(--font-mono);font-size:.74rem;cursor:pointer;text-align:left}
+.x-chip:hover{border-color:var(--gold)}.x-chip small{color:var(--gold);letter-spacing:.14em}
+.x-video{position:relative;aspect-ratio:16/9;margin-top:20px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.x-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.q-opts{display:grid;gap:8px;margin-top:14px}
+.q-opt{padding:12px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.025);color:var(--text);cursor:pointer;text-align:left;font-size:.88rem}
+.q-opt:hover{border-color:var(--gold);background:var(--gold-soft)}
+.q-bar{height:4px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}.q-bar i{display:block;height:100%;background:var(--gold);transition:width .4s}
+.faq details{border:1px solid var(--line-soft);border-radius:14px;background:rgba(255,255,255,.02);margin-bottom:10px;padding:0 18px}
+.faq summary{padding:16px 0;cursor:pointer;font-family:var(--font-display);font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--gold);font-size:1.3rem;line-height:1}.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 16px;color:var(--muted);font-size:.88rem}
+.x-form{display:grid;gap:12px}
+.x-form label{display:grid;gap:5px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.x-form input,.x-form select,.x-form textarea{width:100%;padding:12px 13px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(0,0,0,.35);color:var(--text);font:inherit;font-size:.9rem;text-transform:none;letter-spacing:0}
+.x-form input:focus,.x-form select:focus,.x-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.x-form textarea{min-height:120px;resize:vertical}
+.x-row{display:flex;flex-wrap:wrap;gap:10px}
+.x-quote{font-size:.95rem;color:var(--text)}.x-by{margin-top:12px;font-family:var(--font-mono);font-size:.66rem;color:var(--gold)}
+.cb-fab{position:fixed;left:18px;bottom:18px;z-index:110;width:54px;height:54px;border-radius:50%;border:1px solid var(--gold);background:#0d0c07;color:var(--gold);cursor:pointer;box-shadow:0 0 28px -6px rgba(255,214,10,.6);display:grid;place-items:center}
+.cb-fab .icon{width:24px;height:24px}
+.cb-panel{position:fixed;left:18px;bottom:84px;z-index:110;width:min(340px,calc(100vw - 36px));max-height:70vh;display:none;flex-direction:column;border:1px solid var(--line-strong);border-radius:16px;background:#0b0b0e;box-shadow:0 30px 70px -20px #000;overflow:hidden}
+.cb-panel.open{display:flex}
+.cb-top{padding:12px 15px;border-bottom:1px solid var(--line-soft);font-family:var(--font-display);font-weight:700;letter-spacing:.1em;color:var(--gold)}
+.cb-log{flex:1;overflow:auto;padding:14px;display:grid;gap:8px;align-content:start;font-size:.82rem}
+.cb-m{padding:9px 12px;border-radius:10px;max-width:90%}.cb-b{background:var(--panel-3);color:var(--text)}.cb-u{background:var(--gold);color:#0a0800;justify-self:end}
+.cb-q{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-top:1px solid var(--line-soft)}
+.cb-q button{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--gold-soft);color:var(--gold-bright);font-size:.72rem;cursor:pointer}
+.tilt{transition:transform .15s ease-out!important;will-change:transform}
+@media(max-width:900px){.x-grid{grid-template-columns:1fr}}
+@media(min-width:600px) and (max-width:900px){.x-grid{grid-template-columns:repeat(2,1fr)}}`;
+  document.head.appendChild(css);
+
+  /* ---------- Sections ---------- */
+  const contactChips = `
+    <button class="x-chip" data-c="${C.discord}"><span>Discord: ${C.discord}</span><small>COPY</small></button>
+    <button class="x-chip" data-c="${C.email}"><span>${C.email}</span><small>COPY</small></button>
+    <button class="x-chip" data-c="${C.roblox}"><span>Roblox: ${C.roblox}</span><small>COPY</small></button>
+    <div class="x-row" style="margin-top:12px">
+      <a class="btn btn--primary btn--sm" href="${C.invite}" target="_blank" rel="noopener">Discord</a>
+      <a class="btn btn--outline btn--sm" href="mailto:${C.email}">Email</a>
+      <a class="btn btn--ghost btn--sm" href="https://www.roblox.com/search/users?keyword=${encodeURIComponent(C.roblox)}" target="_blank" rel="noopener">Roblox</a>
+    </div>`;
+
+  const about = sec("about", head("A", "About us", ["about", 'Who <span class="grad">we are.</span>'],
+    `<strong>ELITES</strong> is a friendly Roblox clan and community built around game nights, giveaways and good vibes. Founded by ${C.name} in August 2026.`) + `
+    <div class="x-grid">
+      <article class="x-card"><h3>Our story</h3><p>ELITES started as a small group of friends who wanted a Roblox home with real events and no drama. Today it's a growing community with weekly game nights, tryouts and rewards.</p></article>
+      <article class="x-card"><h3>Meet the founder</h3><p><strong>${C.name}</strong> — founder &amp; owner. Message me for staff applications, partnerships or questions.</p>${contactChips}</article>
+      <article class="x-card"><h3>Our mission</h3><p>A safe, friendly, 13+ space where everyone gets a squad. Play together. Grow together.</p><a class="btn btn--primary btn--sm" style="margin-top:14px" href="${C.invite}" target="_blank" rel="noopener">Join Discord</a></article>
+    </div>` + (VIDEO_ID ? `<div class="x-video"><iframe src="https://www.youtube-nocookie.com/embed/${VIDEO_ID}" title="ELITES intro video" loading="lazy" allowfullscreen></iframe></div>` : ""), "");
+  $(".marquee")?.after(about);
+
+  const quiz = sec("quiz", head("B", "Quick quiz", ["quiz", 'Which game is <span class="grad">your vibe?</span>'], "Three questions. Find the ELITES game night that fits you.") + `<div class="x-card" id="quiz-box" style="max-width:640px"></div>`);
+  $("#perks")?.after(quiz);
+
+  const faqItems = [
+    ["Is ELITES free to join?", "Yes. It's free and there's no application needed to join the Discord."],
+    ["What's the age requirement?", "13+ only, in line with Discord and Roblox rules."],
+    ["How do I apply for staff?", `Staff applications are open. Join the Discord and apply there, or email ${C.email}.`],
+    ["Can my server partner with ELITES?", `Yes, partnerships are open. Message ${C.discord} on Discord.`],
+    ["When are game nights?", "Weekly. Check the announcements channel in Discord for the exact time."],
+    ["How do I get the Early Member role?", "Join the Discord while the role is still available."],
+  ];
+  const faq = sec("faq", head("C", "FAQ", ["faq", 'Got <span class="grad">questions?</span>'], "Quick answers. Still stuck? Use the contact form below.") +
+    `<div class="faq" style="max-width:820px">${faqItems.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("")}</div>`);
+
+  const tHtml = TESTIMONIALS.length
+    ? TESTIMONIALS.map((t) => `<article class="x-card"><p class="x-quote">“${t.quote}”</p><p class="x-by">— ${t.name}${t.role ? " · " + t.role : ""}</p></article>`).join("")
+    : `<article class="x-card" style="grid-column:1/-1;text-align:center"><h3>Be our first review</h3><p>Join the community and tell us what you think in the Discord feedback channel. Your words could appear here.</p></article>`;
+  const testi = sec("reviews", head("D", "Members say", ["reviews", 'Member <span class="grad">voices.</span>'], "Real feedback from our community.") + `<div class="x-grid">${tHtml}</div>`);
+
+  const contact = sec("contact", head("E", "Contact", ["contact", 'Talk to <span class="grad">us.</span>'], `Questions, staff applications or partnerships? Reach ${C.name} any way you like.`) + `
+    <div class="promo-layout">
+      <form class="x-card x-form" id="x-form">
+        <label>Your name<input name="n" required maxlength="60" autocomplete="name"></label>
+        <label>Your Discord (optional)<input name="d" maxlength="60"></label>
+        <label>Topic<select name="t"><option>Question</option><option>Staff application</option><option>Partnership</option><option>Feedback</option></select></label>
+        <label>Message<textarea name="m" required maxlength="1000"></textarea></label>
+        <div class="x-row"><button class="btn btn--primary" type="submit">Send via email</button><button class="btn btn--ghost" type="button" id="x-copy">Copy message</button></div>
+        <p class="control-note">Opens your email app with the message ready to send.</p>
+      </form>
+      <div class="x-card"><h3>Direct contact</h3><p>Founder: ${C.name}</p>${contactChips}
+        <a class="btn btn--outline" style="margin-top:14px" href="${C.invite}" target="_blank" rel="noopener">Open Discord invite</a></div>
+    </div>`);
+  const cta = $("#cta");
+  [testi, faq, contact].forEach((s) => cta?.before(s));
+
+  /* ---------- nav / footer ---------- */
+  const nav = $("#primary-nav");
+  if (nav) [["#about", "About"], ["#faq", "FAQ"], ["#contact", "Contact"]].forEach(([h, t]) => { const a = document.createElement("a"); a.href = h; a.textContent = t; a.className = "nav-x"; nav.appendChild(a); });
+  const fcols = $$(".footer-col");
+  if (fcols[1]) fcols[1].insertAdjacentHTML("beforeend", `<a href="mailto:${C.email}">${C.email}</a><a href="#contact">Discord: ${C.discord}</a>`);
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-c]"); if (b) copy(b.dataset.c); });
+  const form = $("#x-form");
+  const msg = () => { const f = new FormData(form); return `Topic: ${f.get("t")}\nName: ${f.get("n")}\nDiscord: ${f.get("d") || "-"}\n\n${f.get("m")}`; };
+  form?.addEventListener("submit", (e) => { e.preventDefault(); location.href = `mailto:${C.email}?subject=${encodeURIComponent("ELITES — " + new FormData(form).get("t"))}&body=${encodeURIComponent(msg())}`; });
+  $("#x-copy")?.addEventListener("click", () => { if (form.reportValidity()) copy(msg()); });
+
+  /* ---------- quiz ---------- */
+  const Q = [
+    ["What's your style?", [["Grinder", "bf"], ["Competitor", "ri"], ["Chaotic fun", "ev"], ["Social / roleplay", "dh"]]],
+    ["Pick a mood:", [["Chill co-op", "bf"], ["Sweaty", "ri"], ["Scream in VC", "ev"], ["Mind games", "mm"]]],
+    ["Ideal squad size?", [["3–4 friends", "bf"], ["Just me vs. rival", "ri"], ["Big lobby", "ev"], ["Whole crew", "dh"]]],
+  ];
+  const R = { bf: "Blox Fruits", ri: "Rivals", ev: "Evade", dh: "Da Hood", mm: "Murder Mystery 2" };
+  const box = $("#quiz-box"); let step = 0, score = {};
+  const draw = () => {
+    if (!box) return;
+    if (step >= Q.length) {
+      const top = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+      box.innerHTML = `<h3>Your match: ${R[top]}</h3><p>Hop in a ${R[top]} game night with the clan.</p><div class="x-row" style="margin-top:14px"><a class="btn btn--primary btn--sm" href="${C.invite}" target="_blank" rel="noopener">Join Discord</a><button class="btn btn--ghost btn--sm" id="q-r">Retake</button></div>`;
+      $("#q-r").onclick = () => { step = 0; score = {}; draw(); }; return;
+    }
+    const [q, o] = Q[step];
+    box.innerHTML = `<div class="q-bar"><i style="width:${(step / Q.length) * 100}%"></i></div><h3 style="margin-top:14px">${q}</h3><div class="q-opts">${o.map(([t, k]) => `<button class="q-opt" data-k="${k}">${t}</button>`).join("")}</div>`;
+    $$(".q-opt", box).forEach((b) => (b.onclick = () => { score[b.dataset.k] = (score[b.dataset.k] || 0) + 1; step++; draw(); }));
+  };
+  draw();
+
+  /* ---------- chat helper ---------- */
+  const A = {
+    "How do I join?": `Click Join Discord anywhere on the site: ${C.invite}. It's free.`,
+    "Staff apps": `Open now! Apply in the Discord or email ${C.email}.`,
+    "Partnerships": `Open too. Message ${C.discord} on Discord.`,
+    "Rules": "13+ only, respect everyone, keep it friendly, have fun.",
+    "Contact": `Discord: ${C.discord} · Email: ${C.email} · Roblox: ${C.roblox}`,
+  };
+  const fab = document.createElement("button");
+  fab.className = "cb-fab"; fab.setAttribute("aria-label", "Open help chat"); fab.innerHTML = `<svg class="icon"><use href="#i-chat"></use></svg>`;
+  const pan = document.createElement("div"); pan.className = "cb-panel"; pan.setAttribute("role", "dialog"); pan.setAttribute("aria-label", "ELITES help");
+  pan.innerHTML = `<div class="cb-top">ELITES HELPER</div><div class="cb-log"><div class="cb-m cb-b">Hi! Pick a question below. For a real person, message ${C.name} on Discord.</div></div><div class="cb-q"></div>`;
+  document.body.append(pan, fab);
+  const log = $(".cb-log", pan);
+  Object.keys(A).forEach((k) => {
+    const b = document.createElement("button"); b.textContent = k;
+    b.onclick = () => { [["cb-u", k], ["cb-b", A[k]]].forEach(([c, t]) => { const m = document.createElement("div"); m.className = "cb-m " + c; m.textContent = t; log.appendChild(m); }); log.scrollTop = log.scrollHeight; };
+    $(".cb-q", pan).appendChild(b);
+  });
+  fab.onclick = () => pan.classList.toggle("open");
+
+  /* ---------- hover tilt ---------- */
+  if (matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches) {
+    $$(".game-card,.perk-card,.x-card").forEach((c) => {
+      c.addEventListener("pointermove", (e) => { const r = c.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.classList.add("tilt"); c.style.transform = `perspective(700px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 5).toFixed(2)}deg) translateY(-4px)`; });
+      c.addEventListener("pointerleave", () => { c.style.transform = ""; });
+    });
+  }
+
+  /* ---------- SEO: structured data ---------- */
+  const ld = document.createElement("script"); ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "ELITES Clan", url: "https://jsadw.github.io/Elites-clan/", email: C.email, founder: { "@type": "Person", name: C.name }, sameAs: [C.invite] });
+  document.head.appendChild(ld);
+})();
+
+
+/* ELITES security hardening — load AFTER elites-extras.js (both with defer) */
+(() => {
+  "use strict";
+
+  /* 1. Anti-clickjacking: refuse to run inside someone else's frame */
+  try {
+    if (window.top !== window.self) {
+      document.documentElement.style.display = "none";
+      window.top.location = window.self.location;
+    }
+  } catch (e) {
+    document.documentElement.innerHTML = "";
+  }
+
+  /* 2. Link hardening */
+  const ALLOWED = ["discord.gg", "discord.com", "jsadw.github.io", "www.roblox.com", "roblox.com", "fonts.googleapis.com", "fonts.gstatic.com", "www.youtube-nocookie.com", "schema.org"];
+  const hardenLinks = () => {
+    document.querySelectorAll("a[href]").forEach((a) => {
+      const href = a.getAttribute("href") || "";
+      if (/^\s*(javascript|data|vbscript):/i.test(href)) { a.removeAttribute("href"); return; }
+      if (/^(mailto:|#|\/|\.)/i.test(href)) return;
+      try {
+        const u = new URL(href, location.href);
+        if (u.protocol !== "https:" && u.protocol !== "mailto:") { a.removeAttribute("href"); return; }
+        if (u.origin !== location.origin && !ALLOWED.includes(u.hostname)) {
+          console.warn("[ELITES security] Removed unexpected link:", href);
+          a.removeAttribute("href"); return;
+        }
+        if (u.origin !== location.origin) a.setAttribute("rel", "noopener noreferrer");
+      } catch (e) { a.removeAttribute("href"); }
+    });
+  };
+  hardenLinks();
+  new MutationObserver(hardenLinks).observe(document.body, { childList: true, subtree: true });
+
+  /* 3. Contact form protection */
+  const form = document.getElementById("x-form");
+  if (form) {
+    // Honeypot: invisible to humans, bots fill it in
+    const trap = document.createElement("input");
+    trap.type = "text"; trap.name = "website"; trap.tabIndex = -1;
+    trap.autocomplete = "off"; trap.setAttribute("aria-hidden", "true");
+    trap.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0";
+    form.appendChild(trap);
+
+    const KEY = "elites_form_log";
+    const COOLDOWN = 30 * 1000, HOUR = 3600 * 1000, MAX_PER_HOUR = 5;
+    const readLog = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { return []; } };
+    const writeLog = (l) => { try { localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) { /* ignore */ } };
+    const clean = (s) => String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").trim();
+    const loadedAt = Date.now();
+
+    // Capture phase so we run before the extras handler and can block it
+    form.addEventListener("submit", (e) => {
+      const block = (msg) => { e.preventDefault(); e.stopImmediatePropagation(); alert(msg); };
+      if (trap.value) return block("Submission blocked.");
+      if (Date.now() - loadedAt < 4000) return block("Please take a moment to write your message.");
+
+      const now = Date.now();
+      const log = readLog().filter((t) => now - t < HOUR);
+      if (log.length && now - log[log.length - 1] < COOLDOWN) return block("Please wait 30 seconds before sending another message.");
+      if (log.length >= MAX_PER_HOUR) return block("Too many messages this hour. Try again later or message us on Discord.");
+
+      form.querySelectorAll("input:not([name=website]),textarea").forEach((f) => { f.value = clean(f.value).slice(0, f.maxLength > 0 ? f.maxLength : 1000); });
+      log.push(now); writeLog(log);
+    }, true);
+  }
+
+  /* 4. Strip anything that tries to add inline event handlers later */
+  new MutationObserver((muts) => {
+    muts.forEach((m) => m.addedNodes.forEach((n) => {
+      if (n.nodeType !== 1) return;
+      [n, ...n.querySelectorAll("*")].forEach((el) => {
+        [...el.attributes].forEach((a) => { if (/^on/i.test(a.name)) el.removeAttribute(a.name); });
+        if (el.tagName === "SCRIPT" && el.type !== "application/ld+json" && !el.src.startsWith(location.origin)) el.remove();
+      });
+    }));
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();
+
+</script>
 </body>
 </html>
