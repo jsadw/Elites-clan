@@ -11,7 +11,7 @@
   <meta property="og:description" content="Weekly game nights, giveaways, clan tryouts and good vibes. 76+ members and growing — join ELITES today.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jsadw.github.io/Elites-clan/">
-  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZlNDVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iI2ZmZDYwYSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlNmE3MDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMDcwNzBhIi8+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiByeD0iMTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZDYwYSIgc3Ryb2tlLW9wYWNpdHk9IjAuMzUiLz4KICA8cGF0aCBkPSJNMzcgNyAxNSAzN2gxMmwtMyAyMCAyMy0zMkgzNGwzLTE4WiIgZmlsbD0idXJsKCNnKSIvPgo8L3N2Zz4K" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -2633,7 +2633,12 @@ body.has-pointer .cursor-glow { opacity: 1; }
   .cursor-glow { display: none; }
 }
 
-
+/* ============================================================
+   LOGO IMAGE (Christmas crown logo)
+   ============================================================ */
+.logo-img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.brand-mark { width: 46px; height: 46px; }
+@media (max-width: 560px) { .brand-mark { width: 40px; height: 40px; } }
 
 </style>
   
@@ -2684,7 +2689,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
   <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Loading ELITES">
     <div class="loader-inner">
       <div class="loader-mark">
-        <svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+        <img class="logo-img" src="elites-logo.png" alt="">
       </div>
       <p class="loader-brand">⚡ 𝐄 𝐋 𝐈 𝐓 𝐄 𝐒 ⚡</p>
       <div class="loader-bar" aria-hidden="true"><span></span></div>
@@ -2695,7 +2700,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="ELITES Clan — home">
-        <span class="brand-mark"><svg class="icon"><use href="#i-bolt"></use></svg></span>
+        <span class="brand-mark"><img class="logo-img" src="elites-logo.png" alt="ELITES logo" width="46" height="46"></span>
         <span class="brand-text"><strong>ELITES</strong><small>CLAN • ROBLOX</small></span>
       </a>
 
@@ -2797,7 +2802,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
           </div>
 
           <div class="status-emblem" aria-hidden="true">
-            <div class="emblem-ring"><span class="emblem-core"><svg class="icon"><use href="#i-bolt"></use></svg></span></div>
+            <div class="emblem-ring"><span class="emblem-core"><img class="logo-img" src="elites-logo.png" alt=""></span></div>
             <div class="emblem-copy">
               <strong>ELITES CLAN</strong>
               <span>ROBLOX DIVISION</span>
@@ -3332,7 +3337,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="brand" href="#top" aria-label="ELITES Clan — back to top">
-          <span class="brand-mark"><svg class="icon"><use href="#i-bolt"></use></svg></span>
+          <span class="brand-mark"><img class="logo-img" src="elites-logo.png" alt="ELITES logo" width="46" height="46"></span>
           <span class="brand-text"><strong>ELITES</strong><small>CLAN • ROBLOX</small></span>
         </a>
         <p>Your home for Roblox gaming, giveaways, game nights &amp; new friends. <strong>76+ members</strong> and counting. Our website: <a href="https://jsadw.github.io/Elites-clan/" target="_blank" rel="noopener">jsadw.github.io/Elites-clan</a></p>
@@ -3993,7 +3998,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
 })();
 
 </script>
-  <!-- ===== ELITES extras + security: paste this whole block right ABOVE the last </body> in index.html ===== -->
+  <!-- ===== ELITES extras + security ===== -->
 <script>
 (() => {
   "use strict";
